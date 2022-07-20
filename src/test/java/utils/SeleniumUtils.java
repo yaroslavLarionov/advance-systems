@@ -39,12 +39,12 @@ public class SeleniumUtils {
 //    }
 
     public static void waitForElementClickability(WebElement element){
-        WebDriverWait wait = new WebDriverWait(WebDriverManager.getDriver(), 10);
+        WebDriverWait wait = new WebDriverWait(WebDriverManager.getDriver(), 15);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public static void waitForElementVisibility(WebElement element){
-        WebDriverWait wait = new WebDriverWait(WebDriverManager.getDriver(), 10);
+        WebDriverWait wait = new WebDriverWait(WebDriverManager.getDriver(), 15);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
