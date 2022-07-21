@@ -1,6 +1,7 @@
 package step_definitions;
 
 
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,17 +11,31 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import pages.CommonPage;
 import pages.HomePage;
 import utils.SeleniumUtils;
+
 import utils.WebDriverManager;
 
 public class HomeSteps implements CommonPage {
+
     HomePage homePage;
 
     public HomeSteps() {
         homePage = new HomePage();
+    }
+
+
+    @When("Verify user can see address")
+    public void verify_user_can_see_address() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.contactinfo));
+    }
+
+    @Then("address should print")
+    public void addressshouldprint() {
+        if (WebDriverManager.isDisplayed(homePage.contactinfo)) {
+            System.out.println("print address");
+        }
     }
 
     @When("Information is displayed to the user in the parallax section")
