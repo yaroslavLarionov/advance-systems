@@ -7,6 +7,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.SeleniumUtils;
@@ -25,18 +27,34 @@ public class HomeSteps implements CommonPage {
     }
     @Then("Header and description content should update automatically")
     public void header_and_description_content_should_update_automatically() {
-        for (int i = 1; i < 4; i++) {
-            if (i == 1) {
-                Assert.assertTrue(WebDriverManager.isDisplayed(homePage.ParallaxHeaderOne));
-            } else if (i == 2) {
-                SeleniumUtils.sleep(10000L);
-                Assert.assertTrue(WebDriverManager.isDisplayed(homePage.ParallaxHeaderTwo));
+        SeleniumUtils.waitForElementVisibility(homePage.ParallaxHeaderOne);
+        String descriptionTxtOne = homePage.HeaderOneTxt.getText();
+        for (int i = 0; i < 16000; i++) {
+            if (descriptionTxtOne.equals(homePage.HeaderOneTxt.getText()) && homePage.ParallaxHeaderOne.isDisplayed()) {
+                SeleniumUtils.sleep(1000L);
+            } else if (!descriptionTxtOne.equals(homePage.HeaderOneTxt.getText())){
+                Assert.assertNotEquals(descriptionTxtOne, homePage.HeaderOneTxt.getText());
             } else {
-                SeleniumUtils.sleep(10000L);
-                Assert.assertTrue(WebDriverManager.isDisplayed(homePage.ParallaxHeaderOne));
+                Assert.fail("Max wait time reached");
             }
+            i += 1000;
         }
     }
+
+    @When("User scrolls down page to testimonials section")
+    public void user_scrolls_down_page_to_testimonials_section() {
+        SeleniumUtils.moveIntoView(homePage.testimonialHeader);
+    }
+    @Then("This section should have a header {string}")
+    public void this_section_should_have_a_header(String headerTxt) {
+        Assert.assertEquals(homePage.testimonialHeader.getText(), headerTxt);
+    }
+    @Then("Testimonials information should be displayed with the message, person's name and the state")
+    public void testimonials_information_should_be_displayed_with_the_message_person_s_name_and_the_state() {
+
+    }
+
+
 
     @When("User clicks on {string} button in parallax section")
     public void user_clicks_on_button_in_parallax_section(String btn) {

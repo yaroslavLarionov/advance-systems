@@ -13,8 +13,11 @@ public class HomePage {
     @FindBy(xpath = "(//h2[@class='white-heading'])[1]")
     public WebElement ParallaxHeaderOne;
 
-    @FindBy(xpath = "(//h2[@class='white-heading'])[2]")
-    public WebElement ParallaxHeaderTwo;
+    @FindBy(xpath = "(//div[@class='tp-mask-wrap']//div[@class='text'])[1]")
+    public WebElement HeaderOneTxt;
 
+
+    @FindBy(xpath = "//section[contains (@class, 'testimonial')]//h2")
+    public WebElement testimonialHeader;
 
 }
