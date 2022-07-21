@@ -9,3 +9,8 @@ Feature: HomePage menu navigation and interaction scenarios
   Scenario: Parallax section button interaction
     When User clicks on "Read More" button in parallax section
     Then User should see the "Services" page displayed
+
+
+  Scenario: Check the title of the page
+    When User open the home page
+    Then title should be "Advance Systems - Home"

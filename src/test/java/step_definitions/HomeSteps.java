@@ -48,4 +48,16 @@ public class HomeSteps implements CommonPage {
     }
 
 
+    @When("User open the home page")
+    public void user_open_the_home_page() {
+        WebDriverManager.getDriver();
+
+    }
+
+    @Then("title should be {string}")
+    public void title_should_be(String title) {
+      Assert.assertTrue(title.contains("Advance Systems - Home"));
+    }
+
+
 }
