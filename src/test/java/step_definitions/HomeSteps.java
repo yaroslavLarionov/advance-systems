@@ -1,6 +1,7 @@
 package step_definitions;
 
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -8,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import pages.CommonPage;
 import pages.HomePage;
+import utils.SeleniumUtils;
 import utils.WebDriverManager;
 
 public class HomeSteps implements CommonPage {
@@ -19,14 +21,20 @@ public class HomeSteps implements CommonPage {
 
     @When("Information is displayed to the user in the parallax section")
     public void information_is_displayed_to_the_user_in_the_parallax_section() {
-        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.ParallaxHeaderCareer));
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.ParallaxHeaderOne));
     }
     @Then("Header and description content should update automatically")
     public void header_and_description_content_should_update_automatically() {
-        if (WebDriverManager.isDisplayed(homePage.ParallaxHeaderThinkBig)) {
-            Assert.assertFalse(homePage.ParallaxHeaderCareer.isDisplayed());
-        } else {
-            throw new NoSuchElementException("Element not visible");
+        for (int i = 1; i < 4; i++) {
+            if (i == 1) {
+                Assert.assertTrue(WebDriverManager.isDisplayed(homePage.ParallaxHeaderOne));
+            } else if (i == 2) {
+                SeleniumUtils.sleep(10000L);
+                Assert.assertTrue(WebDriverManager.isDisplayed(homePage.ParallaxHeaderTwo));
+            } else {
+                SeleniumUtils.sleep(10000L);
+                Assert.assertTrue(WebDriverManager.isDisplayed(homePage.ParallaxHeaderOne));
+            }
         }
     }
 
@@ -38,5 +46,6 @@ public class HomeSteps implements CommonPage {
     public void user_should_see_the_page_displayed(String page) {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(page));
     }
+
 
 }

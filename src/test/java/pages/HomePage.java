@@ -10,11 +10,11 @@ public class HomePage {
         PageFactory.initElements(WebDriverManager.getDriver(), this);
     }
 
-    @FindBy(xpath = "//h2[contains (text(),'bright career')]")
-    public WebElement ParallaxHeaderCareer;
+    @FindBy(xpath = "(//h2[@class='white-heading'])[1]")
+    public WebElement ParallaxHeaderOne;
 
-    @FindBy(xpath = "//h2[contains (text(),'Big')]")
-    public WebElement ParallaxHeaderThinkBig;
+    @FindBy(xpath = "(//h2[@class='white-heading'])[2]")
+    public WebElement ParallaxHeaderTwo;
 
 
 }
