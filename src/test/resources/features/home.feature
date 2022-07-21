@@ -3,8 +3,8 @@ Feature: HomePage menu navigation and interaction scenarios
 
 
   Scenario: address is displayed on the page
-    When : Verify user can see address
-    Then : address should print
+    When  Verify user can see address
+    Then  address should print
 
 
   Scenario: Parallax section automatic information update
