@@ -82,7 +82,6 @@ public class HomeSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(page));
     }
 
-
     @When("User open the home page")
     public void user_open_the_home_page() {
         WebDriverManager.getDriver();
@@ -110,4 +109,5 @@ public class HomeSteps implements CommonPage {
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, WhatToExpectItems)));
     }
 }
+
 

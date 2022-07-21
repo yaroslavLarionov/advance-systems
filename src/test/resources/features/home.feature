@@ -16,7 +16,6 @@ Feature: HomePage menu navigation and interaction scenarios
     When User clicks on "Read More" button in parallax section
     Then User should see the "Services" page displayed
 
-
   Scenario: Testimonials section information
     When User scrolls down page to testimonials section
     Then This section should have a header "Words from our Clients"
@@ -55,3 +54,4 @@ Feature: HomePage menu navigation and interaction scenarios
       | Reward & Benefits |
       | Employee & Industrial   |
       | Delivering Excellent  |
+
