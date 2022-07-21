@@ -105,5 +105,9 @@ public class HomeSteps implements CommonPage {
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, linkLanguage)));
     }
 
+    @Then("Verify {string} are displayed")
+    public void verify_are_displayed(String WhatToExpectItems) {
+        WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, WhatToExpectItems)));
+    }
 }
 
