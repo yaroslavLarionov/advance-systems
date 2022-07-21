@@ -39,4 +39,9 @@ public class HomeSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(page));
     }
 
+    @Then("Verify {string} link is displayed")
+    public void verifyLinkIsDisplayed(String linkName) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, linkName))));
+    }
+
 }
