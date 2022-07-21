@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.WebDriverManager;
@@ -51,4 +52,14 @@ public class HomeSteps implements CommonPage {
       Assert.assertTrue(title.contains("Advance Systems - Home"));
     }
 
-}
+    @Then("Verify {string} link is displayed")
+    public void verify_link_is_displayed(String linkName) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, linkName))));
+    }
+
+    @Then("Verify {string} link is displaed")
+    public void verify_link_is_displaed(String linkLanguage) {
+        WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, linkLanguage)));
+    }
+
+    }
