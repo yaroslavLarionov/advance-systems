@@ -1,10 +1,10 @@
 Feature: Page Navigation Bar
 
-  @FirstTest
+  @ADVSYS-22
   Scenario Outline: Verify following links is displayed
-    Then Verify "<Buttons>" links are displayed
+    Then Verify "<Button>" links are displayed
     Examples:
-    |Buttons|
+    |Button|
     |HOME|
     |ABOUT US|
     |SERVICES|

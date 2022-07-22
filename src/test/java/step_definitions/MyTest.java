@@ -12,7 +12,7 @@ import static pages.CommonPage.XPATH_TEMPLATE_TEXT_CONTAINS;
 public class MyTest {
 
     @Then("Verify {string} links are displayed")
-    public void verifyLinksAreDisplayed(String Buttons) {
+    public void verifyLinksAreDisplayed(String Button) {
 
-        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_BUTTON,Buttons))));
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_BUTTON,Button))));
 }}
