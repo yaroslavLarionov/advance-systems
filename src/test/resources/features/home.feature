@@ -11,8 +11,8 @@ Feature: HomePage menu navigation and interaction scenarios
 
 
   Scenario: address is displayed on the page
-    When : Verify user can see address
-    Then : address should print
+    When  Verify user can see address
+    Then  address should print
 
 
   Scenario: Parallax section automatic information update
@@ -23,7 +23,6 @@ Feature: HomePage menu navigation and interaction scenarios
   Scenario: Parallax section button interaction
     When User clicks on "Read More" button in parallax section
     Then User should see the "Services" page displayed
-
 
   Scenario: Testimonials section information
     When User scrolls down page to testimonials section
@@ -54,3 +53,13 @@ Feature: HomePage menu navigation and interaction scenarios
     | French   |
 >>>>>>> cc4a9acbb55f9adc6b25928a34f8acd047c568b0
 
+  @ADVSYS-13
+  Scenario Outline: Verify there are 5 items displayed with headers and descriptions What to Expect section
+    Then Verify "<items>" are displayed
+    Examples:
+      | items |
+      | Leadership Development|
+      | Capability Building  |
+      | Reward & Benefits |
+      | Employee & Industrial   |
+      | Delivering Excellent  |
