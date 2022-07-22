@@ -9,8 +9,17 @@ public class HomePage {
     public HomePage(){ PageFactory.initElements(WebDriverManager.getDriver(), this);}
 
 
-    @FindBy(className = "info-box-one")
-    public WebElement contactinfo;
+    @FindBy(xpath = "//div[@class='header-upper']")
+    public WebElement upperHeader;
+
+    @FindBy(xpath = "//strong[contains (text(), ',')]")
+    public WebElement addressBlock;
+
+    @FindBy(xpath = "//strong[contains (text(), '+')]")
+    public WebElement phoneBlock;
+
+    @FindBy(xpath = "//section[@class='services-section']//p")
+    public WebElement descriptionTxt;
 
     @FindBy(xpath = "(//h2[@class='white-heading'])[1]")
     public WebElement ParallaxHeaderOne;

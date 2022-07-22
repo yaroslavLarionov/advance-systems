@@ -1,7 +1,7 @@
 package step_definitions;
 
-
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,16 +22,34 @@ public class HomeSteps implements CommonPage {
     }
 
 
-    @When("Verify user can see address")
-    public void verify_user_can_see_address() {
-        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.contactinfo));
+    @When("User is browsing in the main navigation bar")
+    public void user_is_browsing_in_the_main_navigation_bar() {
+        SeleniumUtils.waitForElementVisibility(homePage.upperHeader);
     }
 
-    @Then("address should print")
-    public void addressshouldprint() {
-        if (WebDriverManager.isDisplayed(homePage.contactinfo)) {
-            System.out.println("print address");
+    @Then("Verify address is displayed")
+    public void verify_address_is_displayed() {
+        Assert.assertTrue(homePage.addressBlock.isDisplayed());
+    }
+
+    @Then("Verify phone is displayed")
+    public void verify_phone_is_displayed() {
+        Assert.assertTrue(homePage.phoneBlock.isDisplayed());
         }
+
+    @When("User navigates to main header section")
+    public void user_navigates_to_main_header_section() {
+        SeleniumUtils.moveIntoView(homePage.descriptionTxt);
+    }
+
+    @Then("Verify header with {string} text is displayed")
+    public void verify_header_with_text_is_displayed(String txt) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt))));
+    }
+
+    @Then("The description text under headers should be displayed as well")
+    public void the_description_text_should_be_displayed_as_well() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.descriptionTxt));
     }
 
     @When("Information is displayed to the user in the parallax section")
