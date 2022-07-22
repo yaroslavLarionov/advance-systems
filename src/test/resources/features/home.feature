@@ -16,7 +16,6 @@ Feature: HomePage menu navigation and interaction scenarios
     When User clicks on "Read More" button in parallax section
     Then User should see the "Services" page displayed
 
-
   Scenario: Testimonials section information
     When User scrolls down page to testimonials section
     Then This section should have a header "Words from our Clients"
@@ -44,4 +43,15 @@ Feature: HomePage menu navigation and interaction scenarios
     | English  |
     | Spanish  |
     | French   |
+
+  @ADVSYS-13
+  Scenario Outline: Verify there are 5 items displayed with headers and descriptions What to Expect section
+    Then Verify "<items>" are displayed
+    Examples:
+      | items |
+      | Leadership Development|
+      | Capability Building  |
+      | Reward & Benefits |
+      | Employee & Industrial   |
+      | Delivering Excellent  |
 
