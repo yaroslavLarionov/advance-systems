@@ -1,18 +1,17 @@
-
-<<<<<<< HEAD
-  @ADVSYS-7
-    Scenario: address is displayed on the page
-     When  Verify user can see address
-     Then  address should print
-
-
-=======
 Feature: HomePage menu navigation and interaction scenarios
 
+  @ADVSYS-7
+  Scenario: Main navigation bar information blocks
+    When User is browsing in the main navigation bar
+    Then  Verify address is displayed
+    And Verify phone is displayed
 
-  Scenario: address is displayed on the page
-    When : Verify user can see address
-    Then : address should print
+    @ADVSYS-12
+  Scenario: Main header section information
+    When User navigates to main header section
+    Then Verify header with "Welcome to Advance Systems LLC." text is displayed
+    And Verify header with "Our Mission is simple, deliver very honest recruitment services to every customer." text is displayed
+    And The description text under headers should be displayed as well
 
 
   Scenario: Parallax section automatic information update
@@ -52,5 +51,5 @@ Feature: HomePage menu navigation and interaction scenarios
     | English  |
     | Spanish  |
     | French   |
->>>>>>> cc4a9acbb55f9adc6b25928a34f8acd047c568b0
+
 
