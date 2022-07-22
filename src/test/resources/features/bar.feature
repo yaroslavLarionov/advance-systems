@@ -1,5 +1,18 @@
-Feature: Page Navigation Bar buttons
+Feature: Page Navigation Bar
 
-  Scenario: Page navigation Bar
-    When User clicks on "Home" button
-    Then User should be able to see "Home" page is displayed
+  @FirstTest
+  Scenario Outline: Verify following links is displayed
+    Then Verify "<Buttons>" links are displayed
+    Examples:
+    |Buttons|
+    |HOME|
+    |ABOUT US|
+    |SERVICES|
+    |CLIENTS |
+    |JOIN US |
+    |CONTACT US|
+
+
+
+
+
