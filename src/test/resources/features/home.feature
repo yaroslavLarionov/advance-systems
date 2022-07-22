@@ -46,7 +46,7 @@ Feature: HomePage menu navigation and interaction scenarios
 
   @ADVSYS-6.1
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
-    Then Verify "<linkText>" link is displaed
+    Then Verify "<linkText>" link is displayed
     Examples:
     | linkText |
     | English  |
@@ -64,3 +64,9 @@ Feature: HomePage menu navigation and interaction scenarios
       | Reward & Benefits |
       | Employee & Industrial   |
       | Delivering Excellent  |
+
+  @ADVSYS-8
+  Scenario: verify Join Now button above the main content of the home page is displayed
+    When User clicks on "Join Now" button in parallax section
+    Then User should see the "Join Us" page displayed
+
