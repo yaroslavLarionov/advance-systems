@@ -7,15 +7,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.SeleniumUtils;
-
 import utils.WebDriverManager;
+
 
 public class HomeSteps implements CommonPage {
 
@@ -103,6 +99,11 @@ public class HomeSteps implements CommonPage {
     @Then("Verify {string} link is displaed")
     public void verify_link_is_displaed(String linkLanguage) {
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, linkLanguage)));
+    }
+
+    @Then("Verify {string} are displayed")
+    public void verify_are_displayed(String WhatToExpectItems) {
+        WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, WhatToExpectItems)));
     }
 
 }

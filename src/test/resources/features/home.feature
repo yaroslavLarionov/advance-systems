@@ -45,3 +45,13 @@ Feature: HomePage menu navigation and interaction scenarios
     | Spanish  |
     | French   |
 
+  @ADVSYS-13
+  Scenario Outline: Verify there are 5 items displayed with headers and descriptions What to Expect section
+    Then Verify "<items>" are displayed
+    Examples:
+      | items |
+      | Leadership Development|
+      | Capability Building  |
+      | Reward & Benefits |
+      | Employee & Industrial   |
+      | Delivering Excellent  |
