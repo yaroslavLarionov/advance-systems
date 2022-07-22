@@ -39,4 +39,12 @@ public class HomeSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(page));
     }
 
+    @When("User clicks on {string} button")
+    public void userClicksOnButton(String arg0) {
+        
+    }
+
+    @Then("User should be able to see{string}page is displayed")
+    public void userShouldBeAbleToSeePageIsDisplayed(String arg0) {
+    }
 }
