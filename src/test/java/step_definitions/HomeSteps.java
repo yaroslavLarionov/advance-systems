@@ -83,8 +83,13 @@ public class HomeSteps implements CommonPage {
         Assert.assertEquals(homePage.testimonialHeader.getText(), headerTxt);
     }
     @Then("Testimonials information should be displayed with the message, person's name and the state")
-    public void testimonials_information_should_be_displayed_with_the_message_person_s_name_and_the_state() {
-
+    public void testimonials_information_should_be_displayed_with_the_message_person_s_name_and_the_state(List<String> data) {
+        for (String each : data) {
+            SeleniumUtils.waitForElementVisibility(By.xpath(String.format(XPATH_TEMPLATE_PERSON, each)));
+            boolean nameAndStateDisplayed = WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_PERSON, each))).isDisplayed();
+            boolean messageDisplayed = WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_PERSON_MESSAGE, each))).isDisplayed();
+            Assert.assertTrue(nameAndStateDisplayed && messageDisplayed);
+        }
     }
 
 
