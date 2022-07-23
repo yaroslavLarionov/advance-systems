@@ -65,3 +65,28 @@ Feature: HomePage menu navigation and interaction scenarios
       | Employee & Industrial   |
       | Delivering Excellent  |
 
+  Scenario: Verify secondary navigation bar buttons
+    Given Secondary navigation bar is visible to the user
+    When User scrolls down page to testimonials section
+    Then Navigation bar should remain visible
+    And Verify navigation buttons are displayed
+      | Home       |
+      | About Us   |
+      | Services   |
+      | Clients    |
+      | Solutions  |
+      | Join Us    |
+      | Contact Us |
+  @ADVSYS-22
+  Scenario Outline: Verify secondary navigation take user to the expected page
+    Then Verify navigation "<buttons>" takes user to the corresponding page
+    Examples:
+      | buttons    |
+      | Home       |
+      | About Us   |
+      | Services   |
+      | Clients    |
+      | Solutions  |
+      | Join Us    |
+      | Contact Us |
+

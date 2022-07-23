@@ -12,6 +12,8 @@ import pages.HomePage;
 import utils.SeleniumUtils;
 import utils.WebDriverManager;
 
+import java.util.List;
+
 
 public class HomeSteps implements CommonPage {
 
@@ -129,6 +131,29 @@ public class HomeSteps implements CommonPage {
     @Then("Verify {string} are displayed")
     public void verify_are_displayed(String WhatToExpectItems) {
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, WhatToExpectItems)));
+    }
+
+    @Given("Secondary navigation bar is visible to the user")
+    public void secondary_navigation_bar_is_visible_to_the_user() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.navigationBar));
+    }
+
+    @Then("Navigation bar should remain visible")
+    public void navigation_bar_should_remain_visible() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.movableNavigationBar));
+
+    }
+    @Then("Verify navigation buttons are displayed")
+    public void verify_navigation_bar_buttons_are_displayed(List<String> buttons) {
+        for (String each : buttons) {
+            Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_NAVIGATION_BUTTON, each))));
+        }
+    }
+
+    @Then("Verify navigation {string} takes user to the corresponding page")
+    public void verifyNavigationTakesUserToTheCorrespondingPage(String button) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_TEXT, button)));
+        Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(button));
     }
 
 
