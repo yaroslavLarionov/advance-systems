@@ -69,3 +69,14 @@ Feature: HomePage menu navigation and interaction scenarios
       | Reward & Benefits |
       | Employee & Industrial   |
       | Delivering Excellent  |
+
+
+  @ADVASYS-10
+  Scenario Outline: Verify 4 buttons displayed for social media options. Each button should take the user to corresponding page.
+    Then verify "<linkText>" link  is displayed.
+    Examples:
+      | linkText |
+      | Facebook |
+      | Twitter |
+      | Google plus |
+      | LinkedIn |
