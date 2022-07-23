@@ -124,6 +124,19 @@ public class HomeSteps implements CommonPage {
     public void verify_link_is_displaed(String linkLanguage) {
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, linkLanguage)));
     }
+    @When("user clicks on {string} button")
+    public void user_clicks_on_button(String pageLink) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, pageLink)));
+    }
+    @When("User switches to the next window")
+    public void user_switches_to_the_next_window() {
+        SeleniumUtils.switchToNextWindow();
+    }
+
+        @When("user clicks on About Us button")
+    public void user_click_on_about_us_button() {
+        WebDriverManager.getDriver().findElement(By.xpath("//*[text()='About Us']")).click();
+    }
 
     @Then("Verify {string} are displayed")
     public void verify_are_displayed(String WhatToExpectItems) {

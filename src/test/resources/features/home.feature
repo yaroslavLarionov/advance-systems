@@ -34,8 +34,7 @@ Feature: HomePage menu navigation and interaction scenarios
       | Mark Cameron     |
       | Jenifer Addison  |
 
-
-
+  @ADVSYS-2
   Scenario: Check the title of the page
     When User open the home page
     Then title should be "Advance Systems - Home"
@@ -49,7 +48,7 @@ Feature: HomePage menu navigation and interaction scenarios
     | Job Career  |
     | Feedbacks   |
 
-  @ADVSYS-6.1
+  @ADVSYS-6
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
     Then Verify "<linkText>" link is displaed
     Examples:
@@ -58,6 +57,57 @@ Feature: HomePage menu navigation and interaction scenarios
     | Spanish  |
     | French   |
 
+  @ADVSYS-6A
+  Scenario Outline: Verify General Navigation Bar has following options
+    When user clicks on "<link>" button
+    And User switches to the next window
+    Then Verify "<linkText>" link is displayed
+    Examples:
+    | link     |  linkText    |
+    |About Us  | Get Support |
+    |About Us   | Job Career  |
+    |About Us  | Feedbacks   |
+    |Services  | Get Support |
+    |Services    | Job Career  |
+    |Services   | Feedbacks   |
+    |Clients  | Get Support |
+    |Clients    | Job Career  |
+    |Clients   | Feedbacks   |
+    |Solutions  | Get Support |
+    |Solutions    | Job Career  |
+    |Solutions   | Feedbacks   |
+    |Join Us  | Get Support |
+    |Join Us     | Job Career  |
+    |Join Us    | Feedbacks   |
+    |Contact Us  | Get Support |
+    |Contact Us     | Job Career  |
+    |Contact Us    | Feedbacks   |
+
+    @ADVSYS-6B
+  Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
+    When user clicks on "<link>" button
+    And User switches to the next window
+    Then Verify "<linkText>" link is displayed
+    Examples:
+      | link     |  linkText    |
+      |About Us  | English |
+      |About Us   | Spanish  |
+      |About Us  | French   |
+      |Services  | English |
+      |Services    | Spanish  |
+      |Services   | French   |
+      |Clients  | English |
+      |Clients    | Spanish  |
+      |Clients   | French   |
+      |Solutions  | English |
+      |Solutions    | Spanish  |
+      |Solutions   | Feedbacks   |
+      |Join Us  | French |
+      |Join Us     | Spanish  |
+      |Join Us    | French |
+      |Contact Us  | English |
+      |Contact Us     | Spanish  |
+      |Contact Us    | French   |
 
   @ADVSYS-13
   Scenario Outline: Verify there are 5 items displayed with headers and descriptions What to Expect section
