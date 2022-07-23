@@ -131,8 +131,8 @@ public class HomeSteps implements CommonPage {
     @When("User switches to the next window")
     public void user_switches_to_the_next_window() {
         SeleniumUtils.switchToNextWindow();
-    }
 
+    }
         @When("user clicks on About Us button")
     public void user_click_on_about_us_button() {
         WebDriverManager.getDriver().findElement(By.xpath("//*[text()='About Us']")).click();

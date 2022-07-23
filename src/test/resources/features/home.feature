@@ -89,9 +89,9 @@ Feature: HomePage menu navigation and interaction scenarios
     And User switches to the next window
     Then Verify "<linkText>" link is displayed
     Examples:
-      | link     |  linkText    |
+      | link     | linkText |
       |About Us  | English |
-      |About Us   | Spanish  |
+      |About Us  | Spanish  |
       |About Us  | French   |
       |Services  | English |
       |Services    | Spanish  |
