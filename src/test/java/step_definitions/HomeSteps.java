@@ -94,8 +94,8 @@ public class HomeSteps implements CommonPage {
 
 
 
-    @When("User clicks on {string} button in parallax section")
-    public void user_clicks_on_button_in_parallax_section(String btn) {
+    @When("User clicks on {string} button")
+    public void user_clicks_on_button(String btn) {
         WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, btn)));
     }
     @Then("User should see the {string} page displayed")

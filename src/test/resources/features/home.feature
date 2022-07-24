@@ -22,7 +22,7 @@ Feature: HomePage menu navigation and interaction scenarios
 
   @ADVSYS-11
   Scenario: Parallax section button interaction
-    When User clicks on "Read More" button in parallax section
+    When User clicks on "Read More" button
     Then User should see the "Services" page displayed
 
     @ADVSYS-14
@@ -35,7 +35,7 @@ Feature: HomePage menu navigation and interaction scenarios
       | Jenifer Addison  |
 
 
-
+  @ADVSYS-5
   Scenario: Check the title of the page
     When User open the home page
     Then title should be "Advance Systems - Home"
