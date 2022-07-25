@@ -50,12 +50,23 @@ Feature: HomePage menu navigation and interaction scenarios
 
   @ADVSYS-6
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
-    Then Verify "<linkText>" link is displaed
+    Then Verify "<linkText>" link is enabled
     Examples:
     | linkText |
     | English  |
     | Spanish  |
     | French   |
+
+  @ADVSYS-6.1
+  Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
+    When user clicks on "<link>" button
+    And User switches to the next window
+    Then Verify "<linkText>" link is displayed
+    Examples:
+      | link     |  linkText    |
+      |About Us  | English |
+      |About Us   | Spanish  |
+      |About Us  | French   |
 
   @ADVSYS-6A
   Scenario Outline: Verify General Navigation Bar has following options
@@ -82,6 +93,18 @@ Feature: HomePage menu navigation and interaction scenarios
     |Contact Us  | Get Support |
     |Contact Us     | Job Career  |
     |Contact Us    | Feedbacks   |
+
+  @ADVSYS-6B
+    Scenario Outline: To select the language from drop down menu
+    When user clicks on "<link>" button
+    And User switches to the next window
+    Then user clicks on English
+    Then Verify "<linkText>" link is displayed
+    Examples:
+      | linkText |
+      | English  |
+      | Spanish  |
+      | French   |
 
     @ADVSYS-6B
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
@@ -119,3 +142,7 @@ Feature: HomePage menu navigation and interaction scenarios
       | Reward & Benefits |
       | Employee & Industrial   |
       | Delivering Excellent  |
+
+
+
+

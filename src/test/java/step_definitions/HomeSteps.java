@@ -1,8 +1,5 @@
 package step_definitions;
 
-import io.cucumber.java.Scenario;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -120,12 +117,15 @@ public class HomeSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, linkName))));
     }
 
-    @Then("Verify {string} link is displaed")
-    public void verify_link_is_displaed(String linkLanguage) {
+    @Then("Verify {string} link is enabled")
+    public void verify_link_is_enabled(List<String> linkLanguage) {
+       for (String each : linkLanguage)
+        SeleniumUtils.waitForElementVisibility(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT,  linkLanguage)));
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, linkLanguage)));
     }
+
     @When("user clicks on {string} button")
-    public void user_clicks_on_button(String pageLink) {
+    public void user_clicks_on_button1(String pageLink) {
         WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, pageLink)));
     }
     @When("User switches to the next window")
@@ -133,16 +133,24 @@ public class HomeSteps implements CommonPage {
         SeleniumUtils.switchToNextWindow();
 
     }
-        @When("user clicks on About Us button")
-    public void user_click_on_about_us_button() {
-        WebDriverManager.getDriver().findElement(By.xpath("//*[text()='About Us']")).click();
-    }
+//    @Then("user clicks on English")
+//    public void user_clicks_on_english(String dropItem) {
+//        Select dropDown = new Select(WebDriverManager.getDriver().findElement(By.id("dropdownMenu1")));
+//        WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, dropItem)));
+//
+//    }
+//        @When("user clicks on About Us button")
+//    public void user_click_on_about_us_button() {
+//        WebDriverManager.getDriver().findElement(By.xpath("//*[text()='About Us']")).click();
+//    }
 
     @Then("Verify {string} are displayed")
     public void verify_are_displayed(String WhatToExpectItems) {
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, WhatToExpectItems)));
     }
 
-}
+
+    }
+
 
 

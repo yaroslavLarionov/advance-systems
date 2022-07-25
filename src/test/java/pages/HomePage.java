@@ -31,4 +31,11 @@ public class HomePage {
     public WebElement testimonialHeader;
 
 
+
+    @FindBy(xpath = "//div[@class='nav-outer clearfix']")
+    public WebElement navigationBar;
+
+    @FindBy(xpath = "//div[@class='sticky-header']//nav[@class='main-menu']")
+    public WebElement movableNavigationBar;
+
 }

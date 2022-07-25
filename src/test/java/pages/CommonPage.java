@@ -11,4 +11,8 @@ public interface CommonPage {
     String XPATH_TEMPLATE_PERSON = "//h3[text()='%s']/ancestor::div[contains (@class,'active')]";
     String XPATH_TEMPLATE_PERSON_MESSAGE = "//h3[text()='%s']/ancestor::section[contains (@class,'testimonial')]//div[contains (@class,'active')]";
 
+
+
+
+
 }
