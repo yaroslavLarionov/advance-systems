@@ -130,6 +130,15 @@ public class HomeSteps implements CommonPage {
         WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, WhatToExpectItems)));
     }
 
+    @When("User scrolls down to {string}")
+    public void user_scrolls_down_to(String btn) {
+        SeleniumUtils.moveIntoView(WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn))));
+    }
+
+    @Then("Verify email box with placeholder {string} is displayed")
+    public void verify_email_box_with_placeholder_is_displayed(String text) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD, text))));
+    }
 }
 
 

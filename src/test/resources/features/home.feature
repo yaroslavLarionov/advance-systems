@@ -69,3 +69,9 @@ Feature: HomePage menu navigation and interaction scenarios
       | Reward & Benefits |
       | Employee & Industrial   |
       | Delivering Excellent  |
+
+
+  @ADVSYS-19
+  Scenario: Newsletter section information
+    When User scrolls down to "Newsletter"
+    Then Verify email box with placeholder "Email Address..." is displayed
