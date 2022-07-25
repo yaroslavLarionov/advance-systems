@@ -1,5 +1,6 @@
 package utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -48,9 +49,17 @@ public class SeleniumUtils {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public static void waitForElementVisibility(By by){
+        WebDriverWait wait = new WebDriverWait(WebDriverManager.getDriver(), 15);
+        wait.until(ExpectedConditions.visibilityOf(WebDriverManager.getDriver().findElement(by)));
+        highlightElement(WebDriverManager.getDriver().findElement(by));
+    }
+
     public static void moveIntoView(WebElement element){
         ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
+
+
 
     public static void highlightElement(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor) WebDriverManager.getDriver();

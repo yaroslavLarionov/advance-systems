@@ -7,10 +7,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.SeleniumUtils;
 import utils.WebDriverManager;
+
+import java.util.List;
 
 
 public class HomeSteps implements CommonPage {
@@ -84,20 +87,28 @@ public class HomeSteps implements CommonPage {
     }
 
     @Then("Testimonials information should be displayed with the message, person's name and the state")
-    public void testimonials_information_should_be_displayed_with_the_message_person_s_name_and_the_state() {
-
+    public void testimonials_information_should_be_displayed_with_the_message_person_s_name_and_the_state(List<String> data) {
+        for (String each : data) {
+            SeleniumUtils.waitForElementVisibility(By.xpath(String.format(XPATH_TEMPLATE_PERSON, each)));
+            boolean nameAndStateDisplayed = WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_PERSON, each))).isDisplayed();
+            boolean messageDisplayed = WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_PERSON_MESSAGE, each))).isDisplayed();
+            Assert.assertTrue(nameAndStateDisplayed && messageDisplayed);
+        }
     }
 
 
-    @When("User clicks on {string} button in parallax section")
-    public void user_clicks_on_button_in_parallax_section(String btn) {
-        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, btn)));
+    @When("User clicks on {string} button")
+    public void user_clicks_on_button(String btn) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, btn)));
     }
+
+
 
     @Then("User should see the {string} page displayed")
     public void user_should_see_the_page_displayed(String page) {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(page));
     }
+
 
     @When("User open the home page")
     public void user_open_the_home_page() {
@@ -107,7 +118,8 @@ public class HomeSteps implements CommonPage {
 
     @Then("title should be {string}")
     public void title_should_be(String title) {
-        Assert.assertTrue(title.contains("Advance Systems - Home"));
+        Assert.assertEquals(WebDriverManager.getDriver().getTitle(), title);
+
     }
 
 
@@ -123,18 +135,66 @@ public class HomeSteps implements CommonPage {
 
     @Then("Verify {string} are displayed")
     public void verify_are_displayed(String WhatToExpectItems) {
-        WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, WhatToExpectItems)));
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, WhatToExpectItems))));
     }
+
+
+    @When("User scrolls down to {string}")
+    public void user_scrolls_down_to(String btn) {
+        SeleniumUtils.moveIntoView(WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn))));
+    }
+
+    @Then("Verify email box with placeholder {string} is displayed")
+    public void verify_email_box_with_placeholder_is_displayed(String text) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD, text))));
+    }
+
+    @Given("Secondary navigation bar is visible to the user")
+    public void secondary_navigation_bar_is_visible_to_the_user() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.navigationBar));
+    }
+
 
     @When("User navigates to footer section")
     public void User_navigates_to_footer_section() {
         SeleniumUtils.moveIntoView(homePage.copyright);
-
    }
+
+    @Then("Navigation bar should remain visible")
+    public void navigation_bar_should_remain_visible() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.movableNavigationBar));
+    }
+
+    @Then("Verify navigation buttons are displayed")
+    public void verify_navigation_bar_buttons_are_displayed(List<String> buttons) {
+        for (String each : buttons) {
+            Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_NAVIGATION_BUTTON, each))));
+        }
+    }
+
+    @Then("Verify navigation {string} takes user to the corresponding page")
+    public void verifyNavigationTakesUserToTheCorrespondingPage(String button) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_TEXT, button)));
+        Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(button));
+    }
+
+    @Then("Verify button {string} is displayed")
+    public void verify_button_is_displayed(String button) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_BUTTON, button))));
+    }
+
 
     @Then("Verify title with {string} text is displayed")
     public void verifyTitleWithTextIsDisplayed(String updated) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, updated))));
     }
 }
+
+
+
+
+
+
+
+
 
