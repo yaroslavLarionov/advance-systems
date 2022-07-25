@@ -96,12 +96,19 @@ public class HomeSteps implements CommonPage {
 
     @When("User clicks on {string} button")
     public void user_clicks_on_button(String btn) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, btn)));
+    }
+
+    @When("User clicks on {string} button in parallax section")
+    public void user_clicks_on_button_in_parallax_section(String btn) {
         WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, btn)));
     }
+
     @Then("User should see the {string} page displayed")
     public void user_should_see_the_page_displayed(String page) {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(page));
     }
+
 
     @When("User open the home page")
     public void user_open_the_home_page() {
@@ -127,8 +134,9 @@ public class HomeSteps implements CommonPage {
 
     @Then("Verify {string} are displayed")
     public void verify_are_displayed(String WhatToExpectItems) {
-        WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, WhatToExpectItems)));
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, WhatToExpectItems))));
     }
+
 
     @When("User scrolls down to {string}")
     public void user_scrolls_down_to(String btn) {
@@ -139,6 +147,39 @@ public class HomeSteps implements CommonPage {
     public void verify_email_box_with_placeholder_is_displayed(String text) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_INPUT_FIELD, text))));
     }
+
+    @Given("Secondary navigation bar is visible to the user")
+    public void secondary_navigation_bar_is_visible_to_the_user() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.navigationBar));
+    }
+
+    @Then("Navigation bar should remain visible")
+    public void navigation_bar_should_remain_visible() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.movableNavigationBar));
+    }
+
+    @Then("Verify navigation buttons are displayed")
+    public void verify_navigation_bar_buttons_are_displayed(List<String> buttons) {
+        for (String each : buttons) {
+            Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_NAVIGATION_BUTTON, each))));
+        }
+    }
+
+    @Then("Verify navigation {string} takes user to the corresponding page")
+    public void verifyNavigationTakesUserToTheCorrespondingPage(String button) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_TEXT, button)));
+        Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(button));
+    }
+
+
 }
+
+
+
+
+
+
+
+
 
 

@@ -20,10 +20,12 @@ Feature: HomePage menu navigation and interaction scenarios
     When Information is displayed to the user in the parallax section
     Then Header and description content should update automatically
 
+
   @ADVSYS-11
   Scenario: Parallax section button interaction
     When User clicks on "Read More" button
     Then User should see the "Services" page displayed
+
 
     @ADVSYS-14
   Scenario: Testimonials section information
@@ -40,6 +42,7 @@ Feature: HomePage menu navigation and interaction scenarios
     When User open the home page
     Then title should be "Advance Systems - Home"
 
+
   @ADVSYS-6
   Scenario Outline: Verify General Navigation Bar has following options
     Then Verify "<linkText>" link is displayed
@@ -49,9 +52,11 @@ Feature: HomePage menu navigation and interaction scenarios
     | Job Career  |
     | Feedbacks   |
 
+
   @ADVSYS-6.1
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
-    Then Verify "<linkText>" link is displaed
+    When User clicks on "English" button
+    Then Verify "<linkText>" link is displayed
     Examples:
     | linkText |
     | English  |
@@ -71,7 +76,39 @@ Feature: HomePage menu navigation and interaction scenarios
       | Delivering Excellent  |
 
 
+
   @ADVSYS-19
   Scenario: Newsletter section information
     When User scrolls down to "Newsletter"
     Then Verify email box with placeholder "Email Address..." is displayed
+
+
+  @ADVSYS-22
+  Scenario: Verify secondary navigation bar buttons
+    Given Secondary navigation bar is visible to the user
+    When User scrolls down page to testimonials section
+    Then Navigation bar should remain visible
+    And Verify navigation buttons are displayed
+      | Home       |
+      | About Us   |
+      | Services   |
+      | Clients    |
+      | Solutions  |
+      | Join Us    |
+      | Contact Us |
+
+
+  @ADVSYS-22
+  Scenario Outline: Verify secondary navigation take user to the expected page
+    Then Verify navigation "<buttons>" takes user to the corresponding page
+    Examples:
+      | buttons    |
+      | Home       |
+      | About Us   |
+      | Services   |
+      | Clients    |
+      | Solutions  |
+      | Join Us    |
+      | Contact Us |
+
+
