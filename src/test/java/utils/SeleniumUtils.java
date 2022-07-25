@@ -59,6 +59,8 @@ public class SeleniumUtils {
         ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
+
+
     public static void highlightElement(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor) WebDriverManager.getDriver();
 
