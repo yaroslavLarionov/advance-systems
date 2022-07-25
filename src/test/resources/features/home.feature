@@ -6,18 +6,18 @@ Feature: HomePage menu navigation and interaction scenarios
     Then  Verify address is displayed
     And Verify phone is displayed
 
-<<<<<<< HEAD
+
     @ADVSYS-12
   Scenario: Main header section information
     When User navigates to main header section
     Then Verify header with "Welcome to Advance Systems LLC." text is displayed
     And Verify header with "Our Mission is simple, deliver very honest recruitment services to every customer." text is displayed
     And The description text under headers should be displayed as well
-=======
+
   Scenario: address is displayed on the page
     When  Verify user can see address
     Then  address should print
->>>>>>> 7ec630a644dbc14869ab6386086f5e453f34fd6a
+
 
 
   Scenario: Parallax section automatic information update
@@ -50,7 +50,7 @@ Feature: HomePage menu navigation and interaction scenarios
 
   @ADVSYS-6.1
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
-    Then Verify "<linkText>" link is displaed
+    Then Verify "<linkText>" link is displayed
     Examples:
     | linkText |
     | English  |
@@ -68,3 +68,11 @@ Feature: HomePage menu navigation and interaction scenarios
       | Reward & Benefits |
       | Employee & Industrial   |
       | Delivering Excellent  |
+
+
+  @ADVYSY-21
+  Scenario: Copyright update
+    When User navigates to footer section
+    Then Verify title with "Copyright © 2022 Advance Systems LLC. All Rights Reserved." text is displayed
+
+
