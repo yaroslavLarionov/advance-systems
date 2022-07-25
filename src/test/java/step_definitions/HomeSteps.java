@@ -92,23 +92,15 @@ public class HomeSteps implements CommonPage {
         }
     }
 
-
-
     @When("User clicks on {string} button in parallax section")
     public void user_clicks_on_button_in_parallax_section(String btn) {
         WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, btn)));
     }
+
     @Then("User should see the {string} page displayed")
     public void user_should_see_the_page_displayed(String page) {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(page));
     }
-
-@When("User clicks on {string} button")
-    public void userClicksOnButton(String Home) {
-        
-    }
-
-
 
 
     @When("User open the home page")
@@ -146,8 +138,8 @@ public class HomeSteps implements CommonPage {
     @Then("Navigation bar should remain visible")
     public void navigation_bar_should_remain_visible() {
         Assert.assertTrue(WebDriverManager.isDisplayed(homePage.movableNavigationBar));
-
     }
+
     @Then("Verify navigation buttons are displayed")
     public void verify_navigation_bar_buttons_are_displayed(List<String> buttons) {
         for (String each : buttons) {
@@ -164,7 +156,7 @@ public class HomeSteps implements CommonPage {
 
 
 
-    }
+}
 
 
 
