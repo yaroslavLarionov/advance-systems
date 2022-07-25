@@ -40,6 +40,9 @@ public class HomePage {
     @FindBy(xpath = "//section[contains (@class, 'testimonial')]//h2")
     public WebElement testimonialHeader;
 
+    @FindBy(xpath = "//div[@class='page-wrapper']")
+    public WebElement copyright;
+
 
     @FindBy(xpath = "//div[@class='nav-outer clearfix']")
     public WebElement navigationBar;

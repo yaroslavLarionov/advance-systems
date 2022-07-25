@@ -38,7 +38,7 @@ public class HomeSteps implements CommonPage {
     @Then("Verify phone is displayed")
     public void verify_phone_is_displayed() {
         Assert.assertTrue(homePage.phoneBlock.isDisplayed());
-        }
+    }
 
     @When("User navigates to main header section")
     public void user_navigates_to_main_header_section() {
@@ -67,7 +67,7 @@ public class HomeSteps implements CommonPage {
         for (int i = 0; i < 16000; i++) {
             if (descriptionTxtOne.equals(homePage.HeaderOneTxt.getText()) && homePage.ParallaxHeaderOne.isDisplayed()) {
                 SeleniumUtils.sleep(1000L);
-            } else if (!descriptionTxtOne.equals(homePage.HeaderOneTxt.getText())){
+            } else if (!descriptionTxtOne.equals(homePage.HeaderOneTxt.getText())) {
                 Assert.assertNotEquals(descriptionTxtOne, homePage.HeaderOneTxt.getText());
             } else {
                 Assert.fail("Max wait time reached");
@@ -119,6 +119,7 @@ public class HomeSteps implements CommonPage {
     @Then("title should be {string}")
     public void title_should_be(String title) {
         Assert.assertEquals(WebDriverManager.getDriver().getTitle(), title);
+
     }
 
 
@@ -153,6 +154,12 @@ public class HomeSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.isDisplayed(homePage.navigationBar));
     }
 
+
+    @When("User navigates to footer section")
+    public void User_navigates_to_footer_section() {
+        SeleniumUtils.moveIntoView(homePage.copyright);
+   }
+
     @Then("Navigation bar should remain visible")
     public void navigation_bar_should_remain_visible() {
         Assert.assertTrue(WebDriverManager.isDisplayed(homePage.movableNavigationBar));
@@ -175,8 +182,13 @@ public class HomeSteps implements CommonPage {
     public void verify_button_is_displayed(String button) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_BUTTON, button))));
     }
-}
 
+
+    @Then("Verify title with {string} text is displayed")
+    public void verifyTitleWithTextIsDisplayed(String updated) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, updated))));
+    }
+}
 
 
 

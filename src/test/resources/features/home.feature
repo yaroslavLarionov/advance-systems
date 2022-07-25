@@ -77,6 +77,12 @@ Feature: HomePage menu navigation and interaction scenarios
 
 
 
+  @ADVYSY-21
+  Scenario: Copyright update
+    When User navigates to footer section
+    Then Verify title with "Copyright © 2022 Advance Systems LLC. All Rights Reserved." text is displayed
+
+
   @ADVSYS-19
   Scenario: Newsletter section information
     When User scrolls down to "Newsletter"
@@ -122,3 +128,4 @@ Feature: HomePage menu navigation and interaction scenarios
       | twitter   |
       | skype     |
       | linkedin  |
+
