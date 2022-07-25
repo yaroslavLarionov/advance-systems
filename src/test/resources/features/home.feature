@@ -23,7 +23,7 @@ Feature: HomePage menu navigation and interaction scenarios
 
   @ADVSYS-11
   Scenario: Parallax section button interaction
-    When User clicks on "Read More" button in parallax section
+    When User clicks on "Read More" button
     Then User should see the "Services" page displayed
 
 
@@ -55,6 +55,7 @@ Feature: HomePage menu navigation and interaction scenarios
 
   @ADVSYS-6.1
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
+    When User clicks on "English" button
     Then Verify "<linkText>" link is displayed
     Examples:
     | linkText |
@@ -73,6 +74,13 @@ Feature: HomePage menu navigation and interaction scenarios
       | Reward & Benefits |
       | Employee & Industrial   |
       | Delivering Excellent  |
+
+
+
+  @ADVSYS-19
+  Scenario: Newsletter section information
+    When User scrolls down to "Newsletter"
+    Then Verify email box with placeholder "Email Address..." is displayed
 
 
   @ADVSYS-22
@@ -103,3 +111,14 @@ Feature: HomePage menu navigation and interaction scenarios
       | Join Us    |
       | Contact Us |
 
+
+    @ADVSYS-18
+  Scenario Outline: User should see social media buttons in the bottom of the page
+    When User scrolls down to "Newsletter"
+    Then Verify button "<button>" is displayed
+    Examples:
+      | button    |
+      | facebook  |
+      | twitter   |
+      | skype     |
+      | linkedin  |
