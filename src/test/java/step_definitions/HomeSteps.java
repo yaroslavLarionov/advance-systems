@@ -196,6 +196,25 @@ public class HomeSteps implements CommonPage {
             Assert.assertTrue(WebDriverManager.isDisplayed(each));
         }
     }
+
+    @When("User navigates to copyright section")
+    public void user_navigates_to_copyright_section() {
+        SeleniumUtils.moveIntoView(homePage.footerCopyright);
+    }
+    @Then("Verify scroll up button is displayed")
+    public void verifyScrollUpButtonIsDisplayed() {
+        SeleniumUtils.waitForElementVisibility(homePage.scrollUpButton);
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.scrollUpButton));
+    }
+    @Then("User clicks on scroll up button")
+    public void userClicksOnScrollUpButton() {
+        WebDriverManager.click(homePage.scrollUpButton);
+    }
+    @Then("Verify window is scrolled up to show top content")
+    public void verifyWindowIsScrolledUpToTopContent() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.topHeaderOne));
+    }
+
 }
 
 
