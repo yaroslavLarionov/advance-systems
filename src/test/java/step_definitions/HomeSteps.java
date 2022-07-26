@@ -188,6 +188,33 @@ public class HomeSteps implements CommonPage {
     public void verifyTitleWithTextIsDisplayed(String updated) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, updated))));
     }
+
+    @Then("Verify company names are displayed")
+    public void verifyCompanyNamesAreDisplayed() {
+        List <WebElement> companyName = WebDriverManager.getDriver().findElements(By.xpath("//div[contains(@class,'active')]//*[@class='item']"));
+        for (WebElement each : companyName) {
+            Assert.assertTrue(WebDriverManager.isDisplayed(each));
+        }
+    }
+
+    @When("User navigates to copyright section")
+    public void user_navigates_to_copyright_section() {
+        SeleniumUtils.moveIntoView(homePage.footerCopyright);
+    }
+    @Then("Verify scroll up button is displayed")
+    public void verifyScrollUpButtonIsDisplayed() {
+        SeleniumUtils.waitForElementVisibility(homePage.scrollUpButton);
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.scrollUpButton));
+    }
+    @Then("User clicks on scroll up button")
+    public void userClicksOnScrollUpButton() {
+        WebDriverManager.click(homePage.scrollUpButton);
+    }
+    @Then("Verify window is scrolled up to show top content")
+    public void verifyWindowIsScrolledUpToTopContent() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.topHeaderOne));
+    }
+
 }
 
 
