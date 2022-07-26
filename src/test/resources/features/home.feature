@@ -147,3 +147,27 @@ Feature: HomePage menu navigation and interaction scenarios
     Then Verify scroll up button is displayed
     And User clicks on scroll up button
     Then Verify window is scrolled up to show top content
+
+  @ADVSYS-10
+  Scenario Outline: User should see social media buttons in the main menu and they should redirect to corresponding page
+    Then Verify "<socialMedia>" button is displayed in main menu
+    Examples:
+      | socialMedia    |
+      | facebook  |
+      | twitter   |
+      | google    |
+      | linkedin  |
+    Then User clicks "<socialMedia>" button
+    Examples:
+      | socialMedia    |
+      | facebook  |
+      | twitter   |
+      | google    |
+      | linkedin  |
+    Then Verify "<socialMediaTitles>" redirects to corresponding page
+    Examples:
+      | socialMediaTitles    |
+      | facebook.com  |
+      | twitter.com   |
+      | google.com    |
+      | linkedin.com  |

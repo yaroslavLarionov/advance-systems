@@ -15,5 +15,7 @@ public interface CommonPage {
 
     String XPATH_TEMPLATE_FOOTER_BUTTON = "//ul[@class='social-icon-six']//a[contains (@href,'%s')]";
 
+    String XPATH_TEMPLATE_SOCIAL_MEDIA = "//i[contains(@class, '%s')]";
+
 
 }
