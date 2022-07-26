@@ -129,3 +129,8 @@ Feature: HomePage menu navigation and interaction scenarios
       | skype     |
       | linkedin  |
 
+
+  @ADVSYS-8
+  Scenario: User should be able to interact with "Join US" button
+    When User clicks on "Join Now" button
+    Then User should see the "Join Us" page displayed
