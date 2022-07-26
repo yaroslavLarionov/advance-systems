@@ -152,7 +152,9 @@ Feature: HomePage menu navigation and interaction scenarios
   @ADVSYS-17
   Scenario Outline: user should be able to open quick links in footer
     When User scrolls down to footer
+    And User clicks on "<links>" button of that page
     Then Verify "<links>" work as expected
+
     Examples:
       | links           |
       | Home            |

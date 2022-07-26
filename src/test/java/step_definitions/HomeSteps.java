@@ -197,16 +197,19 @@ public class HomeSteps implements CommonPage {
         String actualCI = WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_CINFO, num))).getText().trim();
         Assert.assertEquals(string.trim() , actualCI);
     }
-        @Then("Verify {string} work as expected")
-        public void verify_work_as_expected(String string) {
-            SeleniumUtils.waitForElementClickability(WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_QUICKLINKS, string))));
-            SeleniumUtils.highlightElement(WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_QUICKLINKS, string))));
-            WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_QUICKLINKS, string))).click();
-            String title = WebDriverManager.getDriver().getTitle();
-            Assert.assertTrue(title.contains(string.toUpperCase()));
 
-        }
+    @When("User clicks on {string} button of that page")
+    public void user_clicks_on_button_of_that_page(String link) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKTEXT, link)));
     }
+
+    @Then("Verify {string} work as expected")
+    public void verify_work_as_expected(String link) {
+        Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(link));
+    }
+        }
+
+
 
 
 
