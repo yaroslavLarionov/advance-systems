@@ -187,10 +187,11 @@ public class HomeSteps implements CommonPage {
     public void verifyTitleWithTextIsDisplayed(String updated) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, updated))));
     }
-        @When("User scrolls down to footer")
-        public void user_scrolls_down_to_footer () {
-            SeleniumUtils.moveIntoView(homePage.footerSection);
-        }
+
+    @When("User scrolls down to footer")
+    public void user_scrolls_down_to_footer () {
+        SeleniumUtils.moveIntoView(homePage.footerSection);
+    }
 
     @Then("Verify following {string} and {string} is displayed")
     public void verify_following_and_is_displayed(String string, String num) {
@@ -207,8 +208,38 @@ public class HomeSteps implements CommonPage {
     public void verify_work_as_expected(String link) {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(link));
     }
-        }
+        
 
+    @Then("Verify company names are displayed")
+    public void verifyCompanyNamesAreDisplayed() {
+        List <WebElement> companyName = WebDriverManager.getDriver().findElements(By.xpath("//div[contains(@class,'active')]//*[@class='item']"));
+        for (WebElement each : companyName) {
+            Assert.assertTrue(WebDriverManager.isDisplayed(each));
+        }
+    }
+
+    @When("User navigates to copyright section")
+    public void user_navigates_to_copyright_section() {
+        SeleniumUtils.moveIntoView(homePage.footerCopyright);
+    }
+    
+    @Then("Verify scroll up button is displayed")
+    public void verifyScrollUpButtonIsDisplayed() {
+        SeleniumUtils.waitForElementVisibility(homePage.scrollUpButton);
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.scrollUpButton));
+    }
+    
+    @Then("User clicks on scroll up button")
+    public void userClicksOnScrollUpButton() {
+        WebDriverManager.click(homePage.scrollUpButton);
+    }
+    
+    @Then("Verify window is scrolled up to show top content")
+    public void verifyWindowIsScrolledUpToTopContent() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(homePage.topHeaderOne));
+    }
+
+}
 
 
 

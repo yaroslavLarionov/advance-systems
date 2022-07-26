@@ -53,7 +53,7 @@ Feature: HomePage menu navigation and interaction scenarios
     | Feedbacks   |
 
 
-  @ADVSYS-6.1
+  @ADVSYS-6
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
     When User clicks on "English" button
     Then Verify "<linkText>" link is displayed
@@ -78,7 +78,7 @@ Feature: HomePage menu navigation and interaction scenarios
 
 
 
-  @ADVYSY-21
+  @ADVSYS-21
   Scenario: Copyright update
     When User navigates to footer section
     Then Verify title with "Copyright © 2022 Advance Systems LLC. All Rights Reserved." text is displayed
@@ -131,10 +131,16 @@ Feature: HomePage menu navigation and interaction scenarios
       | linkedin  |
 
 
+  @ADVSYS-15
+  Scenario: User should see company names displayed above footer
+    Then Verify company names are displayed
+
+
   @ADVSYS-8
   Scenario: User should be able to interact with "Join US" button
     When User clicks on "Join Now" button
     Then User should see the "Join Us" page displayed
+
 
 
    @ADVSYS-16
@@ -147,14 +153,13 @@ Feature: HomePage menu navigation and interaction scenarios
     	| Phone: +1 703-831-3217           		| 2	  |
         | Email: info@advancesystems.us 	    | 3	  |
     	| Mon to Sat: 9.00 am to 5:00 pm		| 4	  |
-
+      
 
   @ADVSYS-17
   Scenario Outline: user should be able to open quick links in footer
     When User scrolls down to footer
     And User clicks on "<links>" button of that page
     Then Verify "<links>" work as expected
-
     Examples:
       | links           |
       | Home            |
@@ -163,3 +168,13 @@ Feature: HomePage menu navigation and interaction scenarios
       | Clients         |
       | Join Us         |
       | Contact Us      |
+      
+      
+
+  @ADVSYS-20
+  Scenario: User should see button in the bottom right corner and button should scroll the window to top content once clicked
+    When User navigates to copyright section
+    Then Verify scroll up button is displayed
+    And User clicks on scroll up button
+    Then Verify window is scrolled up to show top content
+
