@@ -1,18 +1,18 @@
 package pages;
 
-import org.openqa.selenium.By;
+//import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.WebDriverManager;
 
-import java.util.List;
+//import java.util.List;
 
 public class HomePage {
 
 
     @FindBy(xpath = "//div[contains(@class, 'header-lower')]//nav")
-    public WebElement Button;
+   public WebElement Button;
 
 
     public HomePage()
@@ -49,6 +49,11 @@ public class HomePage {
 
     @FindBy(xpath = "//div[@class='sticky-header']//nav[@class='main-menu']")
     public WebElement movableNavigationBar;
+
+    @FindBy(xpath = "//*[@class='main-footer']")
+    public WebElement footerSection;
+
+
 
 
 }

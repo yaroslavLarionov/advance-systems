@@ -103,7 +103,6 @@ public class HomeSteps implements CommonPage {
     }
 
 
-
     @Then("User should see the {string} page displayed")
     public void user_should_see_the_page_displayed(String page) {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(page));
@@ -158,7 +157,7 @@ public class HomeSteps implements CommonPage {
     @When("User navigates to footer section")
     public void User_navigates_to_footer_section() {
         SeleniumUtils.moveIntoView(homePage.copyright);
-   }
+    }
 
     @Then("Navigation bar should remain visible")
     public void navigation_bar_should_remain_visible() {
@@ -188,7 +187,26 @@ public class HomeSteps implements CommonPage {
     public void verifyTitleWithTextIsDisplayed(String updated) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, updated))));
     }
-}
+        @When("User scrolls down to footer")
+        public void user_scrolls_down_to_footer () {
+            SeleniumUtils.moveIntoView(homePage.footerSection);
+        }
+
+    @Then("Verify following {string} and {string} is displayed")
+    public void verify_following_and_is_displayed(String string, String num) {
+        String actualCI = WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_CINFO, num))).getText().trim();
+        Assert.assertEquals(string.trim() , actualCI);
+    }
+        @Then("Verify {string} work as expected")
+        public void verify_work_as_expected(String string) {
+            SeleniumUtils.waitForElementClickability(WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_QUICKLINKS, string))));
+            SeleniumUtils.highlightElement(WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_QUICKLINKS, string))));
+            WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_QUICKLINKS, string))).click();
+            String title = WebDriverManager.getDriver().getTitle();
+            Assert.assertTrue(title.contains(string.toUpperCase()));
+
+        }
+    }
 
 
 
