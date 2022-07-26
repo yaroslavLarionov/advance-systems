@@ -63,85 +63,48 @@ Feature: HomePage menu navigation and interaction scenarios
     And User switches to the next window
     Then Verify "<linkText>" link is displayed
     Examples:
-      | link     |  linkText    |
-      |About Us  | English |
-      |About Us   | Spanish  |
-      |About Us  | French   |
+      | link     | linkText |
+      | About Us | English  |
+      | About Us | Spanish  |
+      | About Us | French   |
 
-  @ADVSYS-6A
+  @ADVSYS-6.2
   Scenario Outline: Verify General Navigation Bar has following options
     When user clicks on "<link>" button
     And User switches to the next window
     Then Verify "<linkText>" link is displayed
     Examples:
-    | link     |  linkText    |
-    |About Us  | Get Support |
-    |About Us   | Job Career  |
-    |About Us  | Feedbacks   |
-    |Services  | Get Support |
-    |Services    | Job Career  |
-    |Services   | Feedbacks   |
-    |Clients  | Get Support |
-    |Clients    | Job Career  |
-    |Clients   | Feedbacks   |
-    |Solutions  | Get Support |
-    |Solutions    | Job Career  |
-    |Solutions   | Feedbacks   |
-    |Join Us  | Get Support |
-    |Join Us     | Job Career  |
-    |Join Us    | Feedbacks   |
-    |Contact Us  | Get Support |
-    |Contact Us     | Job Career  |
-    |Contact Us    | Feedbacks   |
+      | link       | linkText    |
+      | About Us   | Get Support |
+      | About Us   | Job Career  |
+      | About Us   | Feedbacks   |
+      | Services   | Get Support |
+      | Services   | Job Career  |
+      | Services   | Feedbacks   |
+      | Clients    | Get Support |
+      | Clients    | Job Career  |
+      | Clients    | Feedbacks   |
+      | Solutions  | Get Support |
+      | Solutions  | Job Career  |
+      | Solutions  | Feedbacks   |
+      | Join Us    | Get Support |
+      | Join Us    | Job Career  |
+      | Join Us    | Feedbacks   |
+      | Contact Us | Get Support |
+      | Contact Us | Job Career  |
+      | Contact Us | Feedbacks   |
 
-  @ADVSYS-6B
-    Scenario Outline: To select the language from drop down menu
-    When user clicks on "<link>" button
-    And User switches to the next window
-    Then user clicks on English
-    Then Verify "<linkText>" link is displayed
-    Examples:
-      | linkText |
-      | English  |
-      | Spanish  |
-      | French   |
-
-    @ADVSYS-6B
-  Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
-    When user clicks on "<link>" button
-    And User switches to the next window
-    Then Verify "<linkText>" link is displayed
-    Examples:
-      | link     | linkText |
-      |About Us  | English |
-      |About Us  | Spanish  |
-      |About Us  | French   |
-      |Services  | English |
-      |Services    | Spanish  |
-      |Services   | French   |
-      |Clients  | English |
-      |Clients    | Spanish  |
-      |Clients   | French   |
-      |Solutions  | English |
-      |Solutions    | Spanish  |
-      |Solutions   | Feedbacks   |
-      |Join Us  | French |
-      |Join Us     | Spanish  |
-      |Join Us    | French |
-      |Contact Us  | English |
-      |Contact Us     | Spanish  |
-      |Contact Us    | French   |
 
   @ADVSYS-13
   Scenario Outline: Verify there are 5 items displayed with headers and descriptions What to Expect section
     Then Verify "<items>" are displayed
     Examples:
-      | items |
-      | Leadership Development|
-      | Capability Building  |
-      | Reward & Benefits |
-      | Employee & Industrial   |
-      | Delivering Excellent  |
+      | items                  |
+      | Leadership Development |
+      | Capability Building    |
+      | Reward & Benefits      |
+      | Employee & Industrial  |
+      | Delivering Excellent   |
 
 
 
