@@ -15,12 +15,12 @@ import org.junit.runner.RunWith;
         glue = {"step_definitions"},
         stepNotifications = true,
         dryRun = false,
-<<<<<<< HEAD
-        tags = "@ADVSYS-14"
-=======
-        tags = "@ADVSYS-21"
 
->>>>>>> master
+        tags = ""
+
+
+
+
 
 
 )
