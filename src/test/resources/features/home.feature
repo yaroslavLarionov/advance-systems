@@ -53,7 +53,7 @@ Feature: HomePage menu navigation and interaction scenarios
     | Feedbacks   |
 
 
-  @ADVSYS-6.1
+  @ADVSYS-6
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
     When User clicks on "English" button
     Then Verify "<linkText>" link is displayed
