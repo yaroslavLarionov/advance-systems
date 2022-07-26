@@ -20,10 +20,12 @@ Feature: HomePage menu navigation and interaction scenarios
     When Information is displayed to the user in the parallax section
     Then Header and description content should update automatically
 
+
   @ADVSYS-11
   Scenario: Parallax section button interaction
-    When User clicks on "Read More" button in parallax section
+    When User clicks on "Read More" button
     Then User should see the "Services" page displayed
+
 
     @ADVSYS-14
   Scenario: Testimonials section information
@@ -35,10 +37,11 @@ Feature: HomePage menu navigation and interaction scenarios
       | Jenifer Addison  |
 
 
-
+  @ADVSYS-5
   Scenario: Check the title of the page
     When User open the home page
     Then title should be "Advance Systems - Home"
+
 
   @ADVSYS-6
   Scenario Outline: Verify General Navigation Bar has following options
@@ -49,8 +52,10 @@ Feature: HomePage menu navigation and interaction scenarios
     | Job Career  |
     | Feedbacks   |
 
+
   @ADVSYS-6.1
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
+    When User clicks on "English" button
     Then Verify "<linkText>" link is displayed
     Examples:
     | linkText |
@@ -70,6 +75,21 @@ Feature: HomePage menu navigation and interaction scenarios
       | Employee & Industrial   |
       | Delivering Excellent  |
 
+
+
+  @ADVYSY-21
+  Scenario: Copyright update
+    When User navigates to footer section
+    Then Verify title with "Copyright © 2022 Advance Systems LLC. All Rights Reserved." text is displayed
+
+
+  @ADVSYS-19
+  Scenario: Newsletter section information
+    When User scrolls down to "Newsletter"
+    Then Verify email box with placeholder "Email Address..." is displayed
+
+
+  @ADVSYS-22
   Scenario: Verify secondary navigation bar buttons
     Given Secondary navigation bar is visible to the user
     When User scrolls down page to testimonials section
@@ -82,6 +102,8 @@ Feature: HomePage menu navigation and interaction scenarios
       | Solutions  |
       | Join Us    |
       | Contact Us |
+
+
   @ADVSYS-22
   Scenario Outline: Verify secondary navigation take user to the expected page
     Then Verify navigation "<buttons>" takes user to the corresponding page
@@ -94,4 +116,16 @@ Feature: HomePage menu navigation and interaction scenarios
       | Solutions  |
       | Join Us    |
       | Contact Us |
+
+
+    @ADVSYS-18
+  Scenario Outline: User should see social media buttons in the bottom of the page
+    When User scrolls down to "Newsletter"
+    Then Verify button "<button>" is displayed
+    Examples:
+      | button    |
+      | facebook  |
+      | twitter   |
+      | skype     |
+      | linkedin  |
 
