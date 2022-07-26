@@ -140,6 +140,7 @@ Feature: HomePage menu navigation and interaction scenarios
     When User clicks on "Join Now" button
     Then User should see the "Join Us" page displayed
 
+
   @ADVSYS-20
   Scenario: User should see button in the bottom right corner and button should scroll the window to top content once clicked
     When User navigates to copyright section
