@@ -140,8 +140,7 @@ Feature: HomePage menu navigation and interaction scenarios
     When User clicks on "Join Now" button
     Then User should see the "Join Us" page displayed
 
-<<<<<<< HEAD
-=======
+
 
   @ADVSYS-20
   Scenario: User should see button in the bottom right corner and button should scroll the window to top content once clicked
@@ -149,4 +148,4 @@ Feature: HomePage menu navigation and interaction scenarios
     Then Verify scroll up button is displayed
     And User clicks on scroll up button
     Then Verify window is scrolled up to show top content
->>>>>>> fc7071c8829f9139bf5de4b8964fda4bb4158920
+
