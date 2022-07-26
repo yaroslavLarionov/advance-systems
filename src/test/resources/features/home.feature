@@ -129,3 +129,6 @@ Feature: HomePage menu navigation and interaction scenarios
       | skype     |
       | linkedin  |
 
+  @ADVSYS-15
+  Scenario: User should see company names displayed above footer
+    Then Verify company names are displayed
