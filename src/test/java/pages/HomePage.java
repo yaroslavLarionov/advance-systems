@@ -50,5 +50,13 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='sticky-header']//nav[@class='main-menu']")
     public WebElement movableNavigationBar;
 
+    @FindBy(xpath = "//*[@class='scroll-to-top scroll-to-target']")
+    public WebElement scrollUpButton;
+
+    @FindBy(xpath = "//*[@class='header-top-one']")
+    public WebElement topHeaderOne;
+
+    @FindBy(xpath = "//*[@class='footer-copyright']")
+    public WebElement footerCopyright;
 
 }
