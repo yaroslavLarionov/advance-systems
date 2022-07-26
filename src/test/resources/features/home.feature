@@ -53,7 +53,7 @@ Feature: HomePage menu navigation and interaction scenarios
     | Feedbacks   |
 
 
-  @ADVSYS-6.1
+  @ADVSYS-6
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
     When User clicks on "English" button
     Then Verify "<linkText>" link is displayed
@@ -77,7 +77,7 @@ Feature: HomePage menu navigation and interaction scenarios
 
 
 
-  @ADVYSY-21
+  @ADVSYS-21
   Scenario: Copyright update
     When User navigates to footer section
     Then Verify title with "Copyright © 2022 Advance Systems LLC. All Rights Reserved." text is displayed
@@ -130,8 +130,23 @@ Feature: HomePage menu navigation and interaction scenarios
       | linkedin  |
 
 
+  @ADVSYS-15
+  Scenario: User should see company names displayed above footer
+    Then Verify company names are displayed
+
+
   @ADVSYS-8
   Scenario: User should be able to interact with "Join US" button
     When User clicks on "Join Now" button
     Then User should see the "Join Us" page displayed
 
+<<<<<<< HEAD
+=======
+
+  @ADVSYS-20
+  Scenario: User should see button in the bottom right corner and button should scroll the window to top content once clicked
+    When User navigates to copyright section
+    Then Verify scroll up button is displayed
+    And User clicks on scroll up button
+    Then Verify window is scrolled up to show top content
+>>>>>>> fc7071c8829f9139bf5de4b8964fda4bb4158920
