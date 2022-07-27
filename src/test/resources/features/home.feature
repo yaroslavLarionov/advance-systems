@@ -148,6 +148,7 @@ Feature: HomePage menu navigation and interaction scenarios
     And User clicks on scroll up button
     Then Verify window is scrolled up to show top content
 
+
   @ADVSYS-10
   Scenario Outline: User should see social media buttons in the main menu and be redirected to corresponding page
     Given User verifies "<socialMedia>" buttons are displayed in main menu
@@ -159,3 +160,31 @@ Feature: HomePage menu navigation and interaction scenarios
       | twitter   |
       | google    |
       | linkedin  |
+
+  @ADVSYS-16
+  Scenario Outline: User should see contact info in the footer
+    When User scrolls down to footer
+    Then  Verify following "<text>" and "<num>" is displayed
+    Examples:
+      | text                                    |  num|
+      | Address: 10090 Main St, Fairfax, VA 	| 1	  |
+      | Phone: +1 703-831-3217           		| 2	  |
+      | Email: info@advancesystems.us 	        | 3	  |
+      | Mon to Sat: 9.00 am to 5:00 pm		    | 4	  |
+
+
+  @ADVSYS-17
+  Scenario Outline: user should be able to open quick links in footer
+    When User scrolls down to footer
+    And User clicks on "<links>" button of that page
+    Then Verify "<links>" work as expected
+
+    Examples:
+      | links           |
+      | Home            |
+      | About Us        |
+      | Services        |
+      | Clients         |
+      | Join Us         |
+      | Contact Us      |
+
