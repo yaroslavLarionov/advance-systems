@@ -59,4 +59,7 @@ public class HomePage {
     @FindBy(xpath = "//*[@class='footer-copyright']")
     public WebElement footerCopyright;
 
+    @FindBy(xpath = "//*[@class='main-footer']")
+    public WebElement footerSection;
+
 }
