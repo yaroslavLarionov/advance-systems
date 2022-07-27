@@ -103,7 +103,6 @@ public class HomeSteps implements CommonPage {
     }
 
 
-
     @Then("User should see the {string} page displayed")
     public void user_should_see_the_page_displayed(String page) {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(page));
@@ -158,7 +157,7 @@ public class HomeSteps implements CommonPage {
     @When("User navigates to footer section")
     public void User_navigates_to_footer_section() {
         SeleniumUtils.moveIntoView(homePage.copyright);
-   }
+    }
 
     @Then("Navigation bar should remain visible")
     public void navigation_bar_should_remain_visible() {
@@ -191,7 +190,7 @@ public class HomeSteps implements CommonPage {
 
     @Then("Verify company names are displayed")
     public void verifyCompanyNamesAreDisplayed() {
-        List <WebElement> companyName = WebDriverManager.getDriver().findElements(By.xpath("//div[contains(@class,'active')]//*[@class='item']"));
+        List<WebElement> companyName = WebDriverManager.getDriver().findElements(By.xpath("//div[contains(@class,'active')]//*[@class='item']"));
         for (WebElement each : companyName) {
             Assert.assertTrue(WebDriverManager.isDisplayed(each));
         }
@@ -201,21 +200,51 @@ public class HomeSteps implements CommonPage {
     public void user_navigates_to_copyright_section() {
         SeleniumUtils.moveIntoView(homePage.footerCopyright);
     }
+
     @Then("Verify scroll up button is displayed")
     public void verifyScrollUpButtonIsDisplayed() {
         SeleniumUtils.waitForElementVisibility(homePage.scrollUpButton);
         Assert.assertTrue(WebDriverManager.isDisplayed(homePage.scrollUpButton));
     }
+
     @Then("User clicks on scroll up button")
     public void userClicksOnScrollUpButton() {
         WebDriverManager.click(homePage.scrollUpButton);
     }
+
     @Then("Verify window is scrolled up to show top content")
     public void verifyWindowIsScrolledUpToTopContent() {
         Assert.assertTrue(WebDriverManager.isDisplayed(homePage.topHeaderOne));
+
     }
 
-}
+        @When("User scrolls down to footer")
+        public void user_scrolls_down_to_footer () {
+            SeleniumUtils.moveIntoView(homePage.footerSection);
+        }
+
+        @Then("Verify following {string} and {string} is displayed")
+        public void verify_following_and_is_displayed (String string, String num){
+            String actualCI = WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_CINFO, num))).getText().trim();
+            Assert.assertEquals(string.trim(), actualCI);
+        }
+
+        @When("User clicks on {string} button of that page")
+        public void user_clicks_on_button_of_that_page (String link){
+            WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKTEXT, link)));
+        }
+
+        @Then("Verify {string} work as expected")
+        public void verify_work_as_expected (String link){
+            Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(link));
+        }
+
+
+    }
+
+
+
+
 
 
 
