@@ -119,11 +119,14 @@ Feature: HomePage menu navigation and interaction scenarios
 
 
     @ADVSYS-18
-  Scenario Outline: User should see social media buttons in the bottom of the page
+  Scenario: User should see social media buttons in the bottom of the page and they should take the user to the right page
     When User scrolls down to "Newsletter"
-    Then Verify button "<button>" is displayed
-    Examples:
-      | button    |
+    Then Verify button is displayed
+      | facebook  |
+      | twitter   |
+      | skype     |
+      | linkedin  |
+    And User should see corresponding page displayed after clicking that button
       | facebook  |
       | twitter   |
       | skype     |

@@ -10,6 +10,7 @@ import java.util.List;
 
 public class HomePage {
 
+    public String homePageTitle = "Advance Systems - Home";
 
     @FindBy(xpath = "//div[contains(@class, 'header-lower')]//nav")
     public WebElement Button;
