@@ -43,7 +43,7 @@ Feature: HomePage menu navigation and interaction scenarios
     Then title should be "Advance Systems - Home"
 
 
-  @ADVSYS-6
+  @ADVSYS-6 @smoke
   Scenario Outline: Verify General Navigation Bar has following options
     Then Verify "<linkText>" link is displayed
     Examples:
@@ -53,7 +53,7 @@ Feature: HomePage menu navigation and interaction scenarios
     | Feedbacks   |
 
 
-  @ADVSYS-6
+  @ADVSYS-6 @smoke
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
     When User clicks on "English" button
     Then Verify "<linkText>" link is displayed
@@ -89,7 +89,7 @@ Feature: HomePage menu navigation and interaction scenarios
     Then Verify email box with placeholder "Email Address..." is displayed
 
 
-  @ADVSYS-22
+  @ADVSYS-22 @smoke
   Scenario: Verify secondary navigation bar buttons
     Given Secondary navigation bar is visible to the user
     When User scrolls down page to testimonials section
@@ -104,7 +104,7 @@ Feature: HomePage menu navigation and interaction scenarios
       | Contact Us |
 
 
-  @ADVSYS-22
+  @ADVSYS-22 @smoke
   Scenario Outline: Verify secondary navigation take user to the expected page
     Then Verify navigation "<buttons>" takes user to the corresponding page
     Examples:
@@ -165,7 +165,6 @@ Feature: HomePage menu navigation and interaction scenarios
     When User scrolls down to footer
     And User clicks on "<links>" button of that page
     Then Verify "<links>" work as expected
-
     Examples:
       | links           |
       | Home            |
