@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = {"step_definitions"},
         stepNotifications = true,
-        dryRun = false,
-        tags = "@ADVSYS-20"
+        dryRun = true,
+        tags = "@ADVSYS-15"
 
 
 
