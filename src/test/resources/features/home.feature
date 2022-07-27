@@ -98,6 +98,7 @@ Feature: HomePage menu navigation and interaction scenarios
       | Home       |
       | About Us   |
       | Services   |
+      | Solutions  |
       | Clients    |
       | Solutions  |
       | Join Us    |
@@ -112,8 +113,8 @@ Feature: HomePage menu navigation and interaction scenarios
       | Home       |
       | About Us   |
       | Services   |
-      | Clients    |
       | Solutions  |
+      | Clients    |
       | Join Us    |
       | Contact Us |
 
