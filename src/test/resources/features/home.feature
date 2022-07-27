@@ -43,7 +43,7 @@ Feature: HomePage menu navigation and interaction scenarios
     Then title should be "Advance Systems - Home"
 
 
-  @ADVSYS-6
+  @ADVSYS-6 @smoke
   Scenario Outline: Verify General Navigation Bar has following options
     Then Verify "<linkText>" link is displayed
     Examples:
@@ -53,7 +53,7 @@ Feature: HomePage menu navigation and interaction scenarios
     | Feedbacks   |
 
 
-  @ADVSYS-6
+  @ADVSYS-6 @smoke
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
     When User clicks on "English" button
     Then Verify "<linkText>" link is displayed
@@ -89,7 +89,7 @@ Feature: HomePage menu navigation and interaction scenarios
     Then Verify email box with placeholder "Email Address..." is displayed
 
 
-  @ADVSYS-22
+  @ADVSYS-22 @smoke
   Scenario: Verify secondary navigation bar buttons
     Given Secondary navigation bar is visible to the user
     When User scrolls down page to testimonials section
@@ -105,7 +105,7 @@ Feature: HomePage menu navigation and interaction scenarios
       | Contact Us |
 
 
-  @ADVSYS-22
+  @ADVSYS-22 @smoke
   Scenario Outline: Verify secondary navigation take user to the expected page
     Then Verify navigation "<buttons>" takes user to the corresponding page
     Examples:
@@ -149,4 +149,44 @@ Feature: HomePage menu navigation and interaction scenarios
     Then Verify scroll up button is displayed
     And User clicks on scroll up button
     Then Verify window is scrolled up to show top content
+
+
+  @ADVSYS-10
+  Scenario Outline: User should see social media buttons in the main menu and be redirected to corresponding page
+    Given User verifies "<socialMedia>" buttons are displayed in main menu
+    When User clicks "<socialMedia>" button
+    Then Verify "<socialMedia>" button redirects to corresponding page
+    Examples:
+      | socialMedia    |
+      | facebook  |
+      | twitter   |
+      | google    |
+      | linkedin  |
+
+  @ADVSYS-16
+  Scenario Outline: User should see contact info in the footer
+    When User scrolls down to footer
+    Then  Verify following "<text>" and "<num>" is displayed
+    Examples:
+      | text                                    |  num|
+      | Address: 10090 Main St, Fairfax, VA 	| 1	  |
+      | Phone: +1 703-831-3217           		| 2	  |
+      | Email: info@advancesystems.us 	        | 3	  |
+      | Mon to Sat: 9.00 am to 5:00 pm		    | 4	  |
+
+
+  @ADVSYS-17
+  Scenario Outline: user should be able to open quick links in footer
+    When User scrolls down to footer
+    And User clicks on "<links>" button of that page
+    Then Verify "<links>" work as expected
+    Examples:
+      | links           |
+      | Home            |
+      | About Us        |
+      | Services        |
+      | Clients         |
+      | Join Us         |
+      | Contact Us      |
+
 
