@@ -177,9 +177,26 @@ public class HomeSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(button));
     }
 
-    @Then("Verify button {string} is displayed")
-    public void verify_button_is_displayed(String button) {
-        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_BUTTON, button))));
+    @Then("Verify button is displayed")
+    public void verify_button_is_displayed(List<String> buttons) {
+        for (String each : buttons) {
+            Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_BUTTON, each))));
+        }
+    }
+
+    @Then("User should see corresponding page displayed after clicking that button")
+    public void user_should_see_corresponding_page_displayed_After_clicking_that_button(List<String> buttons) {
+        for (String each : buttons) {
+            WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_BUTTON, each)));
+            SeleniumUtils.switchToNextWindow();
+            try {
+                Assert.assertTrue(WebDriverManager.getDriver().getTitle().toLowerCase().contains(each));
+            } catch (AssertionError e) {
+                SeleniumUtils.sleep(2000L);
+                Assert.assertTrue(WebDriverManager.getDriver().getTitle().toLowerCase().contains(each));
+            }
+            SeleniumUtils.switchToParticularWindow(homePage.homePageTitle);
+        }
     }
 
 
