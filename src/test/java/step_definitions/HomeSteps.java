@@ -240,10 +240,21 @@ public class HomeSteps implements CommonPage {
         }
 
 
+    @Given("User verifies {string} buttons are displayed in main menu")
+    public void verifyButtonsAreDisplayedInMainMenu(String btn) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_SOCIAL_MEDIA, btn))));
     }
 
+    @Then("User clicks {string} button")
+    public void userClicksButton(String btn) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_SOCIAL_MEDIA, btn)));
+    }
 
-
+    @Then("Verify {string} button redirects to corresponding page")
+    public void verifyButtonToCorrespondingPage(String btn) {
+        Assert.assertTrue(WebDriverManager.getDriver().getCurrentUrl().contains(btn));
+    }
+}
 
 
 

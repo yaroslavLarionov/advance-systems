@@ -15,6 +15,8 @@ public interface CommonPage {
 
     String XPATH_TEMPLATE_FOOTER_BUTTON = "//ul[@class='social-icon-six']//a[contains (@href,'%s')]";
 
+    String XPATH_TEMPLATE_SOCIAL_MEDIA = "//i[contains(@class, '%s')]";
+
     String XPATH_TEMPLATE_FOOTER_CINFO = "//footer[@class='main-footer'] //div[@class='footer-about footer-column-border col-lg-4 col-md-6 col-sm-6 col-xs-12'] //li[%s]";
 
     String XPATH_TEMPLATE_FOOTER_LINKTEXT = "//div[@class='inner']//div[@class='col-md-6 col-sm-12']//a[text()='%s']";
