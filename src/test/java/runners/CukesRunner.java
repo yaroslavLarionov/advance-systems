@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         glue = {"step_definitions"},
         stepNotifications = true,
         dryRun = false,
-        tags = "@ADVSYS-6"
+        tags = "@ADVSYS-6.2"
 
 
 )

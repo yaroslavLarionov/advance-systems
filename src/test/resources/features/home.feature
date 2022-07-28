@@ -39,14 +39,14 @@ Feature: HomePage menu navigation and interaction scenarios
     When User open the home page
     Then title should be "Advance Systems - Home"
 
-  @ADVSYS-6
+  @ADVSYS-6-smoke
   Scenario Outline: Verify General Navigation Bar has following options
     Then Verify "<linkText>" link is displayed
     Examples:
-    | linkText |
-    | Get Support |
-    | Job Career  |
-    | Feedbacks   |
+      | linkText    |
+      | Get Support |
+      | Job Career  |
+      | Feedback    |
 
   @ADVSYS-6
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
@@ -57,18 +57,8 @@ Feature: HomePage menu navigation and interaction scenarios
     | Spanish  |
     | French   |
 
-  @ADVSYS-6.1
-  Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
-    When user clicks on "<link>" button
-    And User switches to the next window
-    Then Verify "<linkText>" link is displayed
-    Examples:
-      | link     | linkText |
-      | About Us | English  |
-      | About Us | Spanish  |
-      | About Us | French   |
 
-  @ADVSYS-6.2
+  @ADVSYS-6
   Scenario Outline: Verify General Navigation Bar has following options
     When user clicks on "<link>" button
     And User switches to the next window
@@ -77,22 +67,22 @@ Feature: HomePage menu navigation and interaction scenarios
       | link       | linkText    |
       | About Us   | Get Support |
       | About Us   | Job Career  |
-      | About Us   | Feedbacks   |
+      | About Us   | Feedback    |
       | Services   | Get Support |
       | Services   | Job Career  |
-      | Services   | Feedbacks   |
+      | Services   | Feedback    |
       | Clients    | Get Support |
       | Clients    | Job Career  |
-      | Clients    | Feedbacks   |
+      | Clients    | Feedback    |
       | Solutions  | Get Support |
       | Solutions  | Job Career  |
-      | Solutions  | Feedbacks   |
+      | Solutions  | Feedback    |
       | Join Us    | Get Support |
       | Join Us    | Job Career  |
-      | Join Us    | Feedbacks   |
+      | Join Us    | Feedback    |
       | Contact Us | Get Support |
       | Contact Us | Job Career  |
-      | Contact Us | Feedbacks   |
+      | Contact Us | Feedback    |
 
 
   @ADVSYS-13
