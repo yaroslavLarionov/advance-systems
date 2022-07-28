@@ -10,7 +10,6 @@ import pages.CommonPage;
 import pages.HomePage;
 import utils.SeleniumUtils;
 import utils.WebDriverManager;
-
 import java.util.List;
 
 
@@ -303,4 +302,4 @@ public class HomeSteps implements CommonPage {
 
 
 
->>>>>>> master
+
