@@ -39,7 +39,7 @@ Feature: HomePage menu navigation and interaction scenarios
     When User open the home page
     Then title should be "Advance Systems - Home"
 
-  @ADVSYS-6-smoke
+  @ADVSYS-6 @smoke
   Scenario Outline: Verify General Navigation Bar has following options
     Then Verify "<linkText>" link is displayed
     Examples:
@@ -48,7 +48,7 @@ Feature: HomePage menu navigation and interaction scenarios
       | Job Career  |
       | Feedback    |
 
-  @ADVSYS-6
+  @ADVSYS-6 @smoke
   Scenario Outline: Verify language section User clicks on dropdown & able to see English, Spanish, French
     Then Verify "<linkText>" link is enabled
     Examples:
@@ -58,7 +58,7 @@ Feature: HomePage menu navigation and interaction scenarios
     | French   |
 
 
-  @ADVSYS-6
+  @ADVSYS-6 @smoke
   Scenario Outline: Verify General Navigation Bar has following options
     When user clicks on "<link>" button
     And User switches to the next window
