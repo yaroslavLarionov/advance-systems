@@ -251,8 +251,8 @@ public class HomeSteps implements CommonPage {
             WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKTEXT, link)));
         }
 
-        @Then("Verify {string} work as expected")
-        public void verify_work_as_expected (String link){
+        @Then("Verify {string} take user to the corresponding page")
+        public void verify_take_user_to_the_corresponding_page (String link){
             Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(link));
         }
 
