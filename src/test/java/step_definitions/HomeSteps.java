@@ -205,12 +205,9 @@ public class HomeSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, updated))));
     }
 
-    @Then("Verify company names are displayed")
-    public void verifyCompanyNamesAreDisplayed() {
-        List<WebElement> companyName = WebDriverManager.getDriver().findElements(By.xpath("//div[contains(@class,'active')]//*[@class='item']"));
-        for (WebElement each : companyName) {
-            Assert.assertTrue(WebDriverManager.isDisplayed(each));
-        }
+    @Then("Verify company {string} are displayed")
+    public void verifyCompanyNamesAreDisplayed(String company) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_COMPANY_NAME, company))));
     }
 
     @When("User navigates to copyright section")
