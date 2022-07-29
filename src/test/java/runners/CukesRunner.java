@@ -16,6 +16,7 @@ import org.junit.runner.RunWith;
         stepNotifications = true,
         dryRun = false,
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         tags = "@ADVSYS-22"
 
@@ -25,6 +26,9 @@ import org.junit.runner.RunWith;
 
 =======
         tags = "@ADVSYS-10"
+>>>>>>> master
+=======
+        tags = "@ADVSYS-15"
 >>>>>>> master
 
 

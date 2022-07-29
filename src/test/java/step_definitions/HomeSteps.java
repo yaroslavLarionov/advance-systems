@@ -177,9 +177,26 @@ public class HomeSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(button));
     }
 
-    @Then("Verify button {string} is displayed")
-    public void verify_button_is_displayed(String button) {
-        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_BUTTON, button))));
+    @Then("Verify button is displayed")
+    public void verify_button_is_displayed(List<String> buttons) {
+        for (String each : buttons) {
+            Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_BUTTON, each))));
+        }
+    }
+
+    @Then("User should see corresponding page displayed after clicking that button")
+    public void user_should_see_corresponding_page_displayed_After_clicking_that_button(List<String> buttons) {
+        for (String each : buttons) {
+            WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_BUTTON, each)));
+            SeleniumUtils.switchToNextWindow();
+            try {
+                Assert.assertTrue(WebDriverManager.getDriver().getTitle().toLowerCase().contains(each));
+            } catch (AssertionError e) {
+                SeleniumUtils.sleep(2000L);
+                Assert.assertTrue(WebDriverManager.getDriver().getTitle().toLowerCase().contains(each));
+            }
+            SeleniumUtils.switchToParticularWindow(homePage.homePageTitle);
+        }
     }
 
 
@@ -188,12 +205,9 @@ public class HomeSteps implements CommonPage {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, updated))));
     }
 
-    @Then("Verify company names are displayed")
-    public void verifyCompanyNamesAreDisplayed() {
-        List<WebElement> companyName = WebDriverManager.getDriver().findElements(By.xpath("//div[contains(@class,'active')]//*[@class='item']"));
-        for (WebElement each : companyName) {
-            Assert.assertTrue(WebDriverManager.isDisplayed(each));
-        }
+    @Then("Verify company {string} are displayed")
+    public void verifyCompanyNamesAreDisplayed(String company) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_COMPANY_NAME, company))));
     }
 
     @When("User navigates to copyright section")
@@ -234,8 +248,8 @@ public class HomeSteps implements CommonPage {
             WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKTEXT, link)));
         }
 
-        @Then("Verify {string} work as expected")
-        public void verify_work_as_expected (String link){
+        @Then("Verify {string} take user to the corresponding page")
+        public void verify_take_user_to_the_corresponding_page (String link){
             Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(link));
         }
 

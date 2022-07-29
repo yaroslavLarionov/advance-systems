@@ -21,5 +21,7 @@ public interface CommonPage {
 
     String XPATH_TEMPLATE_FOOTER_LINKTEXT = "//div[@class='inner']//div[@class='col-md-6 col-sm-12']//a[text()='%s']";
 
+    String XPATH_TEMPLATE_COMPANY_NAME = "//div[contains(@class,'active')]//*[contains(@alt, '%s')]";
+
 
 }

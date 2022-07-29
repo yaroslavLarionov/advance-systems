@@ -98,9 +98,7 @@ Feature: HomePage menu navigation and interaction scenarios
       | Home       |
       | About Us   |
       | Services   |
-      | Solutions  |
       | Clients    |
-      | Solutions  |
       | Join Us    |
       | Contact Us |
 
@@ -113,18 +111,20 @@ Feature: HomePage menu navigation and interaction scenarios
       | Home       |
       | About Us   |
       | Services   |
-      | Solutions  |
       | Clients    |
       | Join Us    |
       | Contact Us |
 
 
     @ADVSYS-18
-  Scenario Outline: User should see social media buttons in the bottom of the page
+  Scenario: User should see social media buttons in the bottom of the page and they should take the user to the right page
     When User scrolls down to "Newsletter"
-    Then Verify button "<button>" is displayed
-    Examples:
-      | button    |
+    Then Verify button is displayed
+      | facebook  |
+      | twitter   |
+      | skype     |
+      | linkedin  |
+    And User should see corresponding page displayed after clicking that button
       | facebook  |
       | twitter   |
       | skype     |
@@ -132,13 +132,21 @@ Feature: HomePage menu navigation and interaction scenarios
 
 
   @ADVSYS-15
-  Scenario: User should see company names displayed above footer
-    Then Verify company names are displayed
-
+  Scenario Outline: User should see company names displayed above footer
+    Then Verify company "<names>" are displayed
+    Examples:
+      | names    |
+      | company-1  |
+      | company-2  |
+      | company-3  |
+      | company-4  |
+      | company-5  |
+      | company-6  |
 
   @ADVSYS-8
   Scenario: User should be able to interact with "Join US" button
-    When User clicks on "Join Now" button
+    When User is browsing in the main navigation bar
+    And User clicks on "Join Now" button
     Then User should see the "Join Us" page displayed
 
 
@@ -179,7 +187,7 @@ Feature: HomePage menu navigation and interaction scenarios
   Scenario Outline: user should be able to open quick links in footer
     When User scrolls down to footer
     And User clicks on "<links>" button of that page
-    Then Verify "<links>" work as expected
+    Then Verify "<links>" take user to the corresponding page
     Examples:
       | links           |
       | Home            |

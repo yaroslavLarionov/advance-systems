@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class SeleniumUtils {
 
@@ -91,6 +92,19 @@ public class SeleniumUtils {
         for(String each: allWindowIDs){
             if (!each.equals(currentWindowID))
                 WebDriverManager.getDriver().switchTo().window(each);
+        }
+    }
+
+    public static void switchToParticularWindow(String title){
+        String currentWindowID = WebDriverManager.getDriver().getWindowHandle();
+        Set<String> allWindowIDs = WebDriverManager.getDriver().getWindowHandles();
+
+        for(String each : allWindowIDs){
+            if (WebDriverManager.getDriver().switchTo().window(each).getTitle().equals(title)) {
+                break;
+            } else {
+                WebDriverManager.getDriver().switchTo().window(currentWindowID);
+            }
         }
     }
 
