@@ -134,9 +134,16 @@ Feature: HomePage menu navigation and interaction scenarios
 
 
   @ADVSYS-15
-  Scenario: User should see company names displayed above footer
-    Then Verify company names are displayed
-
+  Scenario Outline: User should see company names displayed above footer
+    Then Verify company "<names>" are displayed
+    Examples:
+      | names    |
+      | company-1  |
+      | company-2  |
+      | company-3  |
+      | company-4  |
+      | company-5  |
+      | company-6  |
 
   @ADVSYS-8
   Scenario: User should be able to interact with "Join US" button
