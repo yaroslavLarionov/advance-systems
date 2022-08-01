@@ -268,6 +268,11 @@ public class HomeSteps implements CommonPage {
     public void verifyButtonToCorrespondingPage(String btn) {
         Assert.assertTrue(WebDriverManager.getDriver().getCurrentUrl().contains(btn));
     }
+
+    @Given("User navigates to {string} page")
+    public void user_navigates_to_page(String pageName) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, pageName)));
+    }
 }
 
 

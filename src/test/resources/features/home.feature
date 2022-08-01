@@ -47,10 +47,10 @@ Feature: HomePage menu navigation and interaction scenarios
   Scenario Outline: Verify General Navigation Bar has following options
     Then Verify "<linkText>" link is displayed
     Examples:
-    | linkText |
+    | linkText    |
     | Get Support |
     | Job Career  |
-    | Feedbacks   |
+    | Feedback    |
 
 
   @ADVSYS-6 @smoke
@@ -70,9 +70,9 @@ Feature: HomePage menu navigation and interaction scenarios
     Examples:
       | items |
       | Leadership Development|
-      | Capability Building  |
-      | Reward & Benefits |
-      | Employee & Industrial   |
+      | Capability Building   |
+      | Reward & Benefits     |
+      | Employee & Industrial |
       | Delivering Excellent  |
 
 
@@ -99,7 +99,6 @@ Feature: HomePage menu navigation and interaction scenarios
       | About Us   |
       | Services   |
       | Clients    |
-      | Solutions  |
       | Join Us    |
       | Contact Us |
 
@@ -113,7 +112,6 @@ Feature: HomePage menu navigation and interaction scenarios
       | About Us   |
       | Services   |
       | Clients    |
-      | Solutions  |
       | Join Us    |
       | Contact Us |
 
@@ -137,7 +135,7 @@ Feature: HomePage menu navigation and interaction scenarios
   Scenario Outline: User should see company names displayed above footer
     Then Verify company "<names>" are displayed
     Examples:
-      | names    |
+      | names      |
       | company-1  |
       | company-2  |
       | company-3  |
@@ -166,11 +164,11 @@ Feature: HomePage menu navigation and interaction scenarios
     When User clicks "<socialMedia>" button
     Then Verify "<socialMedia>" button redirects to corresponding page
     Examples:
-      | socialMedia    |
-      | facebook  |
-      | twitter   |
-      | google    |
-      | linkedin  |
+      | socialMedia |
+      | facebook    |
+      | twitter     |
+      | google      |
+      | linkedin    |
 
   @ADVSYS-16
   Scenario Outline: User should see contact info in the footer
