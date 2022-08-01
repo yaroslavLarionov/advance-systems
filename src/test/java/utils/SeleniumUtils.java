@@ -60,6 +60,10 @@ public class SeleniumUtils {
         ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
+    public static void moveIntoView(By by){
+        ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", WebDriverManager.getDriver().findElement(by));
+    }
+
 
 
     public static void highlightElement(WebElement element){
