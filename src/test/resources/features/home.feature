@@ -99,7 +99,6 @@ Feature: HomePage menu navigation and interaction scenarios
       | About Us   |
       | Services   |
       | Clients    |
-      | Solutions  |
       | Join Us    |
       | Contact Us |
 
@@ -113,7 +112,6 @@ Feature: HomePage menu navigation and interaction scenarios
       | About Us   |
       | Services   |
       | Clients    |
-      | Solutions  |
       | Join Us    |
       | Contact Us |
 
