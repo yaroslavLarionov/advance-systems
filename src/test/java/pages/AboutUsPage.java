@@ -22,10 +22,14 @@ public class AboutUsPage {
     @FindBy(xpath = "//div[contains (@class, 'team-member-one')]//div[@class='text']")
     public List<WebElement> descriptionList;
 
+    @FindBy(xpath = "//section[@class='feature-section sp-two']//div[@class='text']")
+    public List<WebElement> whyUsDescriptionList;
+
     @FindBy(xpath = "//*[@class='link']//*[text()='Our Services']")
     public WebElement ourServicesBtn;
 
     @FindBy(xpath = "//*[@class='link']//*[text()='We are Recruitment Experts']")
     public WebElement recruitHeader;
+
 
 }
