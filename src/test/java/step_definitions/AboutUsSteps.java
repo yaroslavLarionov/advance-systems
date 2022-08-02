@@ -3,6 +3,7 @@ package step_definitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import okhttp3.internal.http2.Header;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -61,13 +62,8 @@ public class AboutUsSteps implements CommonPage {
         SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, header)));
     }
 
-    @Then("User should see four headers with description text")
-    public void userShouldSeeFourHeadersWithDescriptionText() {
-        Assert.assertTrue(AboutUsPage.Header.isDisplayed());
+    @Then("Verify {string} takes user to the header page")
+    public void verifyTakesUserToTheHeaderPage(String description) {
+        Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(description));
     }
-
-
-
-
-
 }

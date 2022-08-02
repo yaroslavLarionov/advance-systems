@@ -20,7 +20,13 @@ Feature: About Us page related information and interaction
       | skype     |
       | linkedin  |
 
-    @ADVSYS-44
-    Scenario: Why choose us information
-      When User scrolls down to "Why Choose Us" header
-      Then User should see four headers with description text
+  @ADVSYS-44
+  Scenario Outline: Why choose us information
+    When User scrolls down to "Why Choose Us" header
+    Then Verify "<description>" takes user to the header page
+    Examples:
+      | description     |
+      | Evaluate Resume |
+      | Interview       |
+      | Screening       |
+      | Process Done    |
