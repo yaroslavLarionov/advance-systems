@@ -53,7 +53,12 @@ public class AboutUsSteps implements CommonPage {
         }
     }
 
-
+    @Then("Verify {string} and {string} are displayed")
+    public void verify_and_are_displayed(String section, String num) {
+        boolean sectionIsDisplayed = WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, section)));
+        boolean descriptionIsDisplayed = WebDriverManager.isDisplayed(aboutUsPage.whyUsDescriptionList.get(Integer.parseInt(num)));
+        Assert.assertTrue(sectionIsDisplayed && descriptionIsDisplayed);
+    }
 
 
 

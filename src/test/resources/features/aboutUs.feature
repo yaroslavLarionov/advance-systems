@@ -20,3 +20,12 @@ Feature: About Us page related information and interaction
       | skype     |
       | linkedin  |
 
+  @ADVSYS-41
+  Scenario Outline: Why Us section information
+    When User scrolls down to "Why Choose Us"
+    Then Verify "<sub-section>" and "<text>" are displayed
+    Examples:
+      | sub-section        | text |
+      | On Time Services   |  0   |
+      | Experienced Team   |  1   |
+      | Good Track Records |  2   |
