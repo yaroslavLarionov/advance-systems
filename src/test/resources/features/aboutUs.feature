@@ -20,6 +20,13 @@ Feature: About Us page related information and interaction
       | skype     |
       | linkedin  |
 
+  @ADVSYS-43
+  Scenario: Verify header and button under "Our Experts" section
+    Then User should see "We are Recruitment Experts" header under Our Expert section
+    Then Verify "Our Services" button is displayed
+    And Verify "Our Services" button is clickable
+    Then Verify button redirects to "services" page
+
   @ADVSYS-41
   Scenario Outline: Why Us section information
     When User scrolls down to "Why Choose Us"
@@ -29,3 +36,4 @@ Feature: About Us page related information and interaction
       | On Time Services   |  0   |
       | Experienced Team   |  1   |
       | Good Track Records |  2   |
+

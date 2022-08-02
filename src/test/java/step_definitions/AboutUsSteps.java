@@ -53,12 +53,33 @@ public class AboutUsSteps implements CommonPage {
         }
     }
 
+    @Then("User should see {string} header under Our Expert section")
+    public void userShouldSeeHeader(String txt) {
+        SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt)));
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt))));
+    }
+    @Then("Verify {string} button is displayed")
+    public void verifyButtonIsDisplayed(String btn) {
+        SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn)));
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn))));
+    }
+    @Then("Verify {string} button is clickable")
+    public void verifyButtonIsClickable(String btn) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn)));
+    }
+    @Then("Verify button redirects to {string} page")
+    public void userShouldVerifyButtonRedirectsToCorrespondingPage(String page) {
+        Assert.assertTrue(WebDriverManager.getDriver().getCurrentUrl().contains(page));
+    }
+
     @Then("Verify {string} and {string} are displayed")
     public void verify_and_are_displayed(String section, String num) {
         boolean sectionIsDisplayed = WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, section)));
         boolean descriptionIsDisplayed = WebDriverManager.isDisplayed(aboutUsPage.whyUsDescriptionList.get(Integer.parseInt(num)));
         Assert.assertTrue(sectionIsDisplayed && descriptionIsDisplayed);
     }
+
+
 
 
 
