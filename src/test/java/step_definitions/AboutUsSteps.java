@@ -79,7 +79,18 @@ public class AboutUsSteps implements CommonPage {
         Assert.assertTrue(sectionIsDisplayed && descriptionIsDisplayed);
     }
 
-
+    @Then("Verify {string} header is displayed")
+    public void verifyHeaderIsDisplayed(String hdr) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, hdr))));
+    }
+    @Then("Verify name {string} is displayed")
+    public void verifyNameIsDisplayed(String name) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, name))));
+    }
+    @Then("Verify title {string} is displayed")
+    public void verifyTitleIsDisplayed(String title) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, title))));
+    }
 
 
 
