@@ -70,7 +70,7 @@ Feature: HomePage menu navigation and interaction scenarios
       | Delivering Excellent  |
 
 
-  @ADVYSY-21
+  @ADVSYS-21
   Scenario: Copyright update
     When User navigates to footer section
     Then Verify title with "Copyright © 2022 Advance Systems LLC. All Rights Reserved." text is displayed
