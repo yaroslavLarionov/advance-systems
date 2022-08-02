@@ -19,3 +19,4 @@ Feature: About Us page related information and interaction
       | twitter   |
       | skype     |
       | linkedin  |
+

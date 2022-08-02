@@ -1,17 +1,15 @@
 package step_definitions;
 
-import io.cucumber.java.en.Given;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.AboutUsPage;
 import pages.CommonPage;
 import utils.SeleniumUtils;
 import utils.WebDriverManager;
 
-import java.util.List;
 
 public class AboutUsSteps implements CommonPage {
 
@@ -53,8 +51,11 @@ public class AboutUsSteps implements CommonPage {
             SeleniumUtils.sleep(2000L);
             Assert.assertTrue(WebDriverManager.getDriver().getTitle().toLowerCase().contains(btn));
         }
-
     }
+
+
+
+
 
 
 
