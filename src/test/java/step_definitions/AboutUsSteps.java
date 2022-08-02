@@ -40,5 +40,23 @@ public class AboutUsSteps implements CommonPage {
         }
     }
 
+    @When("User clicks on social media {string}")
+    public void user_clicks_on_social_media(String btn) {
+        WebDriverManager.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_MEDIA_LINKS, btn))).click();
+    }
+
+    @Then("Verify {string} takes user to the corresponding page")
+    public void verify_takes_user_to_the_corresponding_page(String btn) {
+        try {
+            Assert.assertTrue(WebDriverManager.getDriver().getTitle().toLowerCase().contains(btn));
+        } catch (AssertionError e) {
+            SeleniumUtils.sleep(2000L);
+            Assert.assertTrue(WebDriverManager.getDriver().getTitle().toLowerCase().contains(btn));
+        }
+
+    }
+
+
+
 
 }
