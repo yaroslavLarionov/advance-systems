@@ -21,6 +21,13 @@ Feature: About Us page related information and interaction
       | linkedin  |
 
   @ADVSYS-44
-  Scenario: Why choose us information
-    When User scrolls down to WE ARE BEST header
-    Then User should see headers
+  Scenario Outline: Why choose us information
+    When User scrolls down to "WE ARE BEST" header
+    Then Verify "<sections>" and "<text>" are displayed in that area
+    Examples:
+      | sections        | text |
+      | Evaluate Resume | 0    |
+      | Interview       | 1    |
+      | Screening       | 2    |
+      | Process Done    | 3    |
+
