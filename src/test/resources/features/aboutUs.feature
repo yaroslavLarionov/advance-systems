@@ -54,3 +54,9 @@ Feature: About Us page related information and interaction
       | Good Track Records |  2   |
 
 
+  @ADVSYS-40
+  Scenario: Main header, name, and title should be displayed
+    Then Verify "Welcome to Advance Systems LLC." header is displayed
+    Then Verify name "Kuba Z" is displayed
+    Then Verify title "CEO & Founder" is displayed
+

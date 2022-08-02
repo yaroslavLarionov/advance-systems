@@ -59,6 +59,7 @@ public class AboutUsSteps implements CommonPage {
         SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt)));
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt))));
     }
+    
     @Then("Verify {string} button is displayed")
     public void verifyButtonIsDisplayed(String btn) {
         SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn)));
@@ -82,6 +83,19 @@ public class AboutUsSteps implements CommonPage {
         Assert.assertTrue(sectionIsDisplayed && descriptionIsDisplayed);
     }
 
+    @Then("Verify {string} header is displayed")
+    public void verifyHeaderIsDisplayed(String hdr) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, hdr))));
+    }
+    
+    @Then("Verify name {string} is displayed")
+    public void verifyNameIsDisplayed(String name) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, name))));
+    }
+    
+    @Then("Verify title {string} is displayed")
+    public void verifyTitleIsDisplayed(String title) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, title))));
 
     @When("User scrolls down to {string} header")
     public void userScrollsDownToHeader(String subtitle) {
