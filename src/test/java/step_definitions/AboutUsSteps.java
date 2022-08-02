@@ -53,9 +53,26 @@ public class AboutUsSteps implements CommonPage {
             SeleniumUtils.sleep(2000L);
             Assert.assertTrue(WebDriverManager.getDriver().getTitle().toLowerCase().contains(btn));
         }
-
     }
 
+    @Then("User should see {string} header under Our Expert section")
+    public void userShouldSeeHeader(String txt) {
+        SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt)));
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt))));
+    }
+    @Then("Verify {string} button is displayed")
+    public void verifyButtonIsDisplayed(String btn) {
+        SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn)));
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn))));
+    }
+    @Then("Verify {string} button is clickable")
+    public void verifyButtonIsClickable(String btn) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn)));
+    }
+    @Then("Verify button redirects to {string} page")
+    public void userShouldVerifyButtonRedirectsToCorrespondingPage(String page) {
+        Assert.assertTrue(WebDriverManager.getDriver().getCurrentUrl().contains(page));
+    }
 
 
 
