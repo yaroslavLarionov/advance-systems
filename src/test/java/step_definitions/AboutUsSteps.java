@@ -96,6 +96,7 @@ public class AboutUsSteps implements CommonPage {
     @Then("Verify title {string} is displayed")
     public void verifyTitleIsDisplayed(String title) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, title))));
+    }
 
     @When("User scrolls down to {string} header")
     public void userScrollsDownToHeader(String subtitle) {
