@@ -54,16 +54,15 @@ public class AboutUsSteps implements CommonPage {
             SeleniumUtils.sleep(2000L);
             Assert.assertTrue(WebDriverManager.getDriver().getTitle().toLowerCase().contains(btn));
         }
-
     }
 
-    @When("User scrolls down to {string} header")
-    public void userScrollsDownToHeader(String header) {
-        SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, header)));
+    @When("User scrolls down to WE ARE BEST header")
+    public void userScrollsDownToWEAREBESTHeader() {
+        SeleniumUtils.moveIntoView(aboutUsPage.Header);
     }
 
-    @Then("Verify {string} are displayed")
-    public void verify_are_displayed(String item) {
-        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_COMPANY_NAME, item))));
+    @Then("User should see headers")
+    public void userShouldSeeHeaders() {
+        Assert.assertTrue(aboutUsPage.section.isDisplayed());
     }
 }
