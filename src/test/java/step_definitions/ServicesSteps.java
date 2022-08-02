@@ -36,4 +36,9 @@ public class ServicesSteps implements CommonPage {
             Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(title));
         }
     }
+
+    @Then("Verify phone and address are displayed on each page")
+    public void verify_phone_and_address_are_displayed_on_each_page() {
+        Assert.assertTrue(WebDriverManager.isDisplayed(servicesPage.divisionsAddress) && WebDriverManager.isDisplayed(servicesPage.divisionsPhone));
+    }
 }
