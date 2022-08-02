@@ -9,8 +9,17 @@ Feature: About Us page related information and interaction
     Then User should see a picture, title and a quote of each team member
 
   @ADVSYS-42
-  Scenario: Team members social media links
-    When User scrolls down to "Our team" section
+  Scenario Outline: Team members social media links
+    When User scrolls down to "Meet Our Experts" section
+    And User clicks on social media "<button>"
+    Then Verify "<button>" takes user to the corresponding page
+    Examples:
+      | button   |
+      | facebook  |
+      | twitter   |
+      | skype     |
+      | linkedin  |
+
 
   @ADVSYS-43
   Scenario: Verify header and button under "Our Experts" section
@@ -18,4 +27,3 @@ Feature: About Us page related information and interaction
     Then Verify "Our Services" button is displayed
     And Verify "Our Services" button is clickable
     Then Verify button redirects to "services" page
-
