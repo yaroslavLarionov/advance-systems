@@ -15,3 +15,15 @@ Feature: Services (Our Divisions) page related information
       | Information Technology   |
       | Healthcare               |
       | Government Projects      |
+
+  @ADVSYS-45
+  Scenario Outline: Division button links
+    Then Verify "<buttons>" are displayed
+    When User clicks on "<buttons>"
+    Then User should be taken to the corresponding page "<buttons>"
+    Examples:
+      | buttons                  |
+      | Finance                  |
+      | Information Technology   |
+      | Healthcare               |
+      | Government Projects      |
