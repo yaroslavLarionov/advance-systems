@@ -23,9 +23,9 @@ Feature: About Us page related information and interaction
   @ADVSYS-44
   Scenario Outline: Why choose us information
     When User scrolls down to "Why Choose Us" header
-    Then Verify "<description>" takes user to the header page
+    Then Verify "<items>" are displayed
     Examples:
-      | description     |
+      | items    |
       | Evaluate Resume |
       | Interview       |
       | Screening       |

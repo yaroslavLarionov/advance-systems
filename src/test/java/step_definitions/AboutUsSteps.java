@@ -62,8 +62,8 @@ public class AboutUsSteps implements CommonPage {
         SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, header)));
     }
 
-    @Then("Verify {string} takes user to the header page")
-    public void verifyTakesUserToTheHeaderPage(String description) {
-        Assert.assertTrue(WebDriverManager.getDriver().getTitle().contains(description));
+    @Then("Verify {string} are displayed")
+    public void verify_are_displayed(String item) {
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_COMPANY_NAME, item))));
     }
 }
