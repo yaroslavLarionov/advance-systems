@@ -22,12 +22,22 @@ public class AboutUsPage {
     @FindBy(xpath = "//div[contains (@class, 'team-member-one')]//div[@class='text']")
     public List<WebElement> descriptionList;
 
-    @FindBy(xpath = "//div[@class='services-block-five col-lg-3 col-md-6 col-sm-12']")
-    public static WebElement Header;
 
     @FindBy(xpath = "//div[contains (@class,'services-block-five')]//div[@class='text']")
     public List<WebElement> sectionDescrList;
 
     @FindBy(xpath = "//section[contains (@ class, 'working')]//h5")
     public WebElement subtitle;
+
+    @FindBy(xpath = "//section[@class='feature-section sp-two']//div[@class='text']")
+    public List<WebElement> whyUsDescriptionList;
+
+    @FindBy(xpath = "//*[@class='link']//*[text()='Our Services']")
+    public WebElement ourServicesBtn;
+
+    @FindBy(xpath = "//*[@class='link']//*[text()='We are Recruitment Experts']")
+    public WebElement recruitHeader;
+
+
+
 }

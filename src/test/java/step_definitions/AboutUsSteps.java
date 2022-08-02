@@ -1,18 +1,16 @@
 package step_definitions;
 
-import io.cucumber.java.en.Given;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import okhttp3.internal.http2.Header;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.AboutUsPage;
 import pages.CommonPage;
 import utils.SeleniumUtils;
 import utils.WebDriverManager;
 
-import java.util.List;
 
 public class AboutUsSteps implements CommonPage {
 
@@ -55,6 +53,35 @@ public class AboutUsSteps implements CommonPage {
             Assert.assertTrue(WebDriverManager.getDriver().getTitle().toLowerCase().contains(btn));
         }
     }
+
+    @Then("User should see {string} header under Our Expert section")
+    public void userShouldSeeHeader(String txt) {
+        SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt)));
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt))));
+    }
+    @Then("Verify {string} button is displayed")
+    public void verifyButtonIsDisplayed(String btn) {
+        SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn)));
+        Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn))));
+    }
+    
+    @Then("Verify {string} button is clickable")
+    public void verifyButtonIsClickable(String btn) {
+        WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn)));
+    }
+    
+    @Then("Verify button redirects to {string} page")
+    public void userShouldVerifyButtonRedirectsToCorrespondingPage(String page) {
+        Assert.assertTrue(WebDriverManager.getDriver().getCurrentUrl().contains(page));
+    }
+
+    @Then("Verify {string} and {string} are displayed")
+    public void verify_and_are_displayed(String section, String num) {
+        boolean sectionIsDisplayed = WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, section)));
+        boolean descriptionIsDisplayed = WebDriverManager.isDisplayed(aboutUsPage.whyUsDescriptionList.get(Integer.parseInt(num)));
+        Assert.assertTrue(sectionIsDisplayed && descriptionIsDisplayed);
+    }
+
 
     @When("User scrolls down to {string} header")
     public void userScrollsDownToHeader(String subtitle) {

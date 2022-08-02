@@ -26,4 +26,5 @@ public interface CommonPage {
     String XPATH_TEMPLATE_MEDIA_LINKS = "//ul[@class='social-icon-one']//span[contains (@class,'%s')]";
 
 
+
 }
