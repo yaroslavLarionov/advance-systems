@@ -76,7 +76,6 @@ Feature: HomePage menu navigation and interaction scenarios
       | Delivering Excellent  |
 
 
-
   @ADVSYS-21
   Scenario: Copyright update
     When User navigates to footer section

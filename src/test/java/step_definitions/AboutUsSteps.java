@@ -3,6 +3,7 @@ package step_definitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import okhttp3.internal.http2.Header;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import pages.AboutUsPage;
@@ -58,15 +59,18 @@ public class AboutUsSteps implements CommonPage {
         SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt)));
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, txt))));
     }
+    
     @Then("Verify {string} button is displayed")
     public void verifyButtonIsDisplayed(String btn) {
         SeleniumUtils.moveIntoView(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn)));
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn))));
     }
+    
     @Then("Verify {string} button is clickable")
     public void verifyButtonIsClickable(String btn) {
         WebDriverManager.click(By.xpath(String.format(XPATH_TEMPLATE_TEXT, btn)));
     }
+    
     @Then("Verify button redirects to {string} page")
     public void userShouldVerifyButtonRedirectsToCorrespondingPage(String page) {
         Assert.assertTrue(WebDriverManager.getDriver().getCurrentUrl().contains(page));
@@ -83,18 +87,25 @@ public class AboutUsSteps implements CommonPage {
     public void verifyHeaderIsDisplayed(String hdr) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, hdr))));
     }
+    
     @Then("Verify name {string} is displayed")
     public void verifyNameIsDisplayed(String name) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, name))));
     }
+    
     @Then("Verify title {string} is displayed")
     public void verifyTitleIsDisplayed(String title) {
         Assert.assertTrue(WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, title))));
+
+    @When("User scrolls down to {string} header")
+    public void userScrollsDownToHeader(String subtitle) {
+        SeleniumUtils.moveIntoView(aboutUsPage.subtitle);
     }
 
-
-
-
-
-
+    @Then("Verify {string} and {string} are displayed in that area")
+    public void verify_and_are_displayed_in_that_area(String section, String text) {
+        boolean sectionIsDisplayed = WebDriverManager.isDisplayed(By.xpath(String.format(XPATH_TEMPLATE_TEXT, section)));
+        boolean textIsDisplayed = WebDriverManager.isDisplayed(aboutUsPage.sectionDescrList.get(Integer.parseInt(text)));
+        Assert.assertTrue(sectionIsDisplayed && textIsDisplayed);
+    }
 }
