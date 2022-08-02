@@ -27,3 +27,14 @@ Feature: Services (Our Divisions) page related information
       | Information Technology   |
       | Healthcare               |
       | Government Projects      |
+
+  @ADVSYS-47
+  Scenario Outline: Address and phone information on divisions page
+    When User clicks on "<buttons>"
+    Then Verify phone and address are displayed on each page
+    Examples:
+      | buttons                  |
+      | Finance                  |
+      | Information Technology   |
+      | Healthcare               |
+      | Government Projects      |
