@@ -58,11 +58,11 @@ public class SeleniumUtils {
     }
 
     public static void moveIntoView(WebElement element){
-        ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element);
     }
 
     public static void moveIntoView(By by){
-        ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", WebDriverManager.getDriver().findElement(by));
+        ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", WebDriverManager.getDriver().findElement(by));
     }
 
 
